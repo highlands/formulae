@@ -44,6 +44,10 @@ group :development, :test do
   gem 'rspec-rails', '3.5.2'
 end
 
+group :production, :staging do
+  gem 'rails_12factor'
+end
+
 group :development do
   gem 'better_errors'
   gem 'rubocop', require: false
