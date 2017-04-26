@@ -3,5 +3,14 @@
 require 'rails_helper'
 
 RSpec.describe Choice, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'fields' do
+    it { is_expected.to respond_to(:label) }
+    it { is_expected.to respond_to(:metadata) }
+    it { is_expected.to respond_to(:maximum_chosen) }
+  end
+
+  describe 'relations' do
+    it { is_expected.to belong_to(:question) }
+    it { is_expected.to belong_to(:question_dependency) }
+  end
 end
