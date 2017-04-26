@@ -21,11 +21,13 @@ s2 = Section.create(name: 'My second section',
                     content: 'This section is for a second test')
 
 Question.create(section: s1,
+                order: 0,
                 key: 'Key', label: 'This is a label',
                 content: 'What is this question?',
                 question_type: 'string', hidden: false)
 
 Question.create(section: s2,
+                order: 1,
                 key: 'Key', label: 'This is a label',
                 content: 'What is this question?',
                 question_type: 'string', hidden: false)
