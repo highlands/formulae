@@ -4,7 +4,7 @@ require 'spec_helper'
 require 'acceptance_helper'
 
 resource 'Forms' do
-  let(:form) { Form.create(application_id: 1) }
+  let(:form) { FactoryGirl.create(:form) }
 
   get 'api/v1/forms' do
     example 'Listing Forms' do
