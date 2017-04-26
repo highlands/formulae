@@ -19,6 +19,26 @@
           "method": "get"
         }
       ]
+    },
+    {
+      "name": "Questions",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Getting a specific Form",
+          "link": "questions/getting_a_specific_form.json",
+          "groups": "all",
+          "route": "api/v1/forms/:form_id/questions/:id",
+          "method": "get"
+        },
+        {
+          "description": "Listing Questions for a specific form",
+          "link": "questions/listing_questions_for_a_specific_form.json",
+          "groups": "all",
+          "route": "api/v1/forms/:form_id/questions",
+          "method": "get"
+        }
+      ]
     }
   ]
 }

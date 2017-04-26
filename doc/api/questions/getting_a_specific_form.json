@@ -1,8 +1,8 @@
 {
-  "resource": "Forms",
+  "resource": "Questions",
   "resource_explanation": null,
   "http_method": "GET",
-  "route": "api/v1/forms/:id",
+  "route": "api/v1/forms/:form_id/questions/:id",
   "description": "Getting a specific Form",
   "explanation": null,
   "parameters": [
@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "api/v1/forms/",
+      "request_path": "api/v1/forms/4/questions/4",
       "request_body": null,
       "request_headers": {
         "Host": "example.org",
@@ -25,20 +25,20 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "[\n\n]",
+      "response_body": "{\n  \"key\": \"nobis\",\n  \"label\": \"temporibus\",\n  \"content\": \"Quo vel quia fugiat autem.\",\n  \"order\": null,\n  \"hidden\": null,\n  \"question_type\": \"string\",\n  \"validate_as\": \"rerum\"\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\"",
+        "ETag": "W/\"ac2e6ea9f54dbe37fd9b2b1b611a5f4f\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "fc4f57d2-1340-4725-ae05-e11bdc907ca9",
-        "X-Runtime": "0.006249",
-        "Content-Length": "2"
+        "X-Request-Id": "65acb9f3-cd46-45c0-8336-44788e0e5613",
+        "X-Runtime": "0.005903",
+        "Content-Length": "149"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/forms/\" -X GET \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000api/v1/forms/4/questions/4\" -X GET \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

@@ -1,9 +1,9 @@
 {
-  "resource": "Forms",
+  "resource": "Questions",
   "resource_explanation": null,
   "http_method": "GET",
-  "route": "api/v1/forms/:id",
-  "description": "Getting a specific Form",
+  "route": "api/v1/forms/:form_id/questions",
+  "description": "Listing Questions for a specific form",
   "explanation": null,
   "parameters": [
 
@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "api/v1/forms/",
+      "request_path": "api/v1/forms/%3Aform_id/questions",
       "request_body": null,
       "request_headers": {
         "Host": "example.org",
@@ -33,12 +33,12 @@
         "Content-Type": "application/json; charset=utf-8",
         "ETag": "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "fc4f57d2-1340-4725-ae05-e11bdc907ca9",
-        "X-Runtime": "0.006249",
+        "X-Request-Id": "041be9df-d6b0-4c7c-8bec-8130612f8ba0",
+        "X-Runtime": "0.012566",
         "Content-Length": "2"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/forms/\" -X GET \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000api/v1/forms/%3Aform_id/questions\" -X GET \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }
