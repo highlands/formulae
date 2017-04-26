@@ -14,5 +14,8 @@ RSpec.describe Question, type: :model do
 
   describe 'relations' do
     it { is_expected.to belong_to(:section) }
+    it { is_expected.to have_many(:question_submissions) }
+    it { is_expected.to have_many(:choices) }
+    it { is_expected.to have_one(:question_dependency) }
   end
 end

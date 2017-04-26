@@ -9,6 +9,7 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
       t.integer :order
       t.boolean :hidden
       t.string :question_type
+      t.string :validate_as
       t.timestamps
     end
   end
