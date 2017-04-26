@@ -2,5 +2,5 @@
 
 class Section < ApplicationRecord
   belongs_to :form
-  belongs_to :question
+  has_one :question
 end
