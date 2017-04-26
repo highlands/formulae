@@ -1,0 +1,50 @@
+Listing Forms
+-------------
+
+Request:
+  GET api/v1/forms
+  Cookie: 
+  Host: example.org
+
+Response:
+  Status: 200 OK
+  Cache-Control: max-age=0, private, must-revalidate
+  Content-Length: 2
+  Content-Type: application/json; charset=utf-8
+  ETag: W/"4f53cda18c2baa0c0354bb5f9a3ecbe5"
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: 9c11eb04-1e7b-463b-822a-4ed3012170a3
+  X-Runtime: 0.053400
+  X-XSS-Protection: 1; mode=block
+
+  [
+  
+  ]
+
+
+Getting a specific Form
+-----------------------
+
+Request:
+  GET api/v1/forms/
+  Cookie: 
+  Host: example.org
+
+Response:
+  Status: 200 OK
+  Cache-Control: max-age=0, private, must-revalidate
+  Content-Length: 2
+  Content-Type: application/json; charset=utf-8
+  ETag: W/"4f53cda18c2baa0c0354bb5f9a3ecbe5"
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: fc4f57d2-1340-4725-ae05-e11bdc907ca9
+  X-Runtime: 0.006249
+  X-XSS-Protection: 1; mode=block
+
+  [
+  
+  ]
+
+
