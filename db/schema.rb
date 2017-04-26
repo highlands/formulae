@@ -42,8 +42,10 @@ ActiveRecord::Schema.define(version: 20_170_425_223_000) do
   end
 
   create_table 'forms', force: :cascade do |t|
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+    t.integer  'application_id'
+    t.datetime 'created_at',     null: false
+    t.datetime 'updated_at',     null: false
+    t.index ['application_id'], name: 'index_forms_on_application_id', using: :btree
   end
 
   create_table 'question_dependencies', force: :cascade do |t|
@@ -57,14 +59,29 @@ ActiveRecord::Schema.define(version: 20_170_425_223_000) do
   end
 
   create_table 'questions', force: :cascade do |t|
+    t.string   'label'
+    t.text     'content'
+    t.boolean  'hidden'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.integer  'section_id'
+    t.index ['section_id'], name: 'index_questions_on_section_id', using: :btree
   end
 
   create_table 'sections', force: :cascade do |t|
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+    t.integer  'form_id'
+    t.integer  'question_id'
+    t.string   'name'
+    t.text     'content'
+    t.datetime 'created_at',  null: false
+    t.datetime 'updated_at',  null: false
+    t.index ['form_id'], name: 'index_sections_on_form_id', using: :btree
+    t.index ['question_id'], name: 'index_sections_on_question_id', using: :btree
   end
 
   add_foreign_key 'api_keys', 'applications'
+  add_foreign_key 'forms', 'applications'
+  add_foreign_key 'questions', 'sections'
+  add_foreign_key 'sections', 'forms'
+  add_foreign_key 'sections', 'questions'
 end
