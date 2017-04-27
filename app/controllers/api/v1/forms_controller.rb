@@ -22,7 +22,7 @@ class Api::V1::FormsController < Api::V1::ApiController
 
   def destroy
     if @form.destroy
-      render json: :no_content, status: :ok
+      render json: :no_content, status: :no_content
     else
       render json: @form.errors, status: :unprocessable_entity
     end
