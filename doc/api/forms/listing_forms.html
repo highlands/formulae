@@ -117,7 +117,8 @@ table th, table td {
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Host: example.org
+            <pre class="request headers">Content-Type: application/json
+Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
@@ -127,6 +128,7 @@ Cookie: </pre>
 
             <h4>cURL</h4>
             <pre class="request curl">curl &quot;http://localhost:3000api/v1/forms&quot; -X GET \
+	-H &quot;Content-Type: application/json&quot; \
 	-H &quot;Host: example.org&quot; \
 	-H &quot;Cookie: &quot;</pre>
 
@@ -138,8 +140,8 @@ X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
 ETag: W/&quot;4f53cda18c2baa0c0354bb5f9a3ecbe5&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 9c11eb04-1e7b-463b-822a-4ed3012170a3
-X-Runtime: 0.053400
+X-Request-Id: b3de8a42-7088-4682-bdb8-28412cd80c32
+X-Runtime: 0.009949
 Content-Length: 2</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>

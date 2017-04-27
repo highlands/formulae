@@ -3,7 +3,7 @@
   "resource_explanation": null,
   "http_method": "GET",
   "route": "api/v1/forms/:form_id/questions/:id",
-  "description": "Getting a specific Form",
+  "description": "Getting a specific Question",
   "explanation": null,
   "parameters": [
 
@@ -14,31 +14,32 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "api/v1/forms/4/questions/4",
+      "request_path": "api/v1/forms/218/questions/171",
       "request_body": null,
       "request_headers": {
+        "Content-Type": "application/json",
         "Host": "example.org",
         "Cookie": ""
       },
       "request_query_parameters": {
       },
-      "request_content_type": null,
+      "request_content_type": "application/json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"key\": \"nobis\",\n  \"label\": \"temporibus\",\n  \"content\": \"Quo vel quia fugiat autem.\",\n  \"order\": null,\n  \"hidden\": null,\n  \"question_type\": \"string\",\n  \"validate_as\": \"rerum\"\n}",
+      "response_body": "{\n  \"id\": 171,\n  \"key\": \"officia\",\n  \"label\": \"quae\",\n  \"content\": \"Error eaque quo ullam ipsam nihil accusamus iste.\",\n  \"order\": null,\n  \"hidden\": null,\n  \"question_type\": \"string\",\n  \"validate_as\": \"adipisci\"\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"ac2e6ea9f54dbe37fd9b2b1b611a5f4f\"",
+        "ETag": "W/\"a55372c2325b0e341030360491bfc1e1\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "65acb9f3-cd46-45c0-8336-44788e0e5613",
-        "X-Runtime": "0.005903",
-        "Content-Length": "149"
+        "X-Request-Id": "a072507f-307a-4da8-8f3a-63c41a489d09",
+        "X-Runtime": "0.003644",
+        "Content-Length": "180"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/forms/4/questions/4\" -X GET \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000api/v1/forms/218/questions/171\" -X GET \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

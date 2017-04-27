@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Questions API</title>
+    <title>Forms API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,27 +106,29 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Questions API</h1>
+      <h1>Forms API</h1>
 
       <div class="article">
-        <h2>Getting a specific Form</h2>
-        <h3>GET api/v1/forms/:form_id/questions/:id</h3>
+        <h2>Deleting a form</h2>
+        <h3>DELETE api/v1/forms/:id</h3>
 
 
 
           <h3>Request</h3>
 
             <h4>Headers</h4>
-            <pre class="request headers">Host: example.org
+            <pre class="request headers">Content-Type: application/json
+Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET api/v1/forms/4/questions/4</pre>
+          <pre class="request route highlight">DELETE api/v1/forms/217</pre>
 
 
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://localhost:3000api/v1/forms/4/questions/4&quot; -X GET \
+            <pre class="request curl">curl &quot;http://localhost:3000api/v1/forms/217&quot; -d &#39;&#39; -X DELETE \
+	-H &quot;Content-Type: application/json&quot; \
 	-H &quot;Host: example.org&quot; \
 	-H &quot;Cookie: &quot;</pre>
 
@@ -135,24 +137,11 @@ Cookie: </pre>
               <pre class="response headers">X-Frame-Options: SAMEORIGIN
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
-Content-Type: application/json; charset=utf-8
-ETag: W/&quot;ac2e6ea9f54dbe37fd9b2b1b611a5f4f&quot;
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 65acb9f3-cd46-45c0-8336-44788e0e5613
-X-Runtime: 0.005903
-Content-Length: 149</pre>
+Cache-Control: no-cache
+X-Request-Id: 75cb65c3-c378-4c5a-bfe3-3a345f4383c6
+X-Runtime: 0.004324</pre>
             <h4>Status</h4>
-            <pre class="response status">200 OK</pre>
-              <h4>Body</h4>
-              <pre class="response body">{
-  &quot;key&quot;: &quot;nobis&quot;,
-  &quot;label&quot;: &quot;temporibus&quot;,
-  &quot;content&quot;: &quot;Quo vel quia fugiat autem.&quot;,
-  &quot;order&quot;: null,
-  &quot;hidden&quot;: null,
-  &quot;question_type&quot;: &quot;string&quot;,
-  &quot;validate_as&quot;: &quot;rerum&quot;
-}</pre>
+            <pre class="response status">204 No Content</pre>
       </div>
     </div>
   </body>

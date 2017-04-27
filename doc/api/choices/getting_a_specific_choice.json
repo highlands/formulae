@@ -1,9 +1,9 @@
 {
-  "resource": "Forms",
+  "resource": "Choices",
   "resource_explanation": null,
   "http_method": "GET",
-  "route": "api/v1/forms",
-  "description": "Listing Forms",
+  "route": "api/v1/questions/:question_id/choices/:id",
+  "description": "Getting a specific Choice",
   "explanation": null,
   "parameters": [
 
@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "api/v1/forms",
+      "request_path": "api/v1/questions/165/choices/30",
       "request_body": null,
       "request_headers": {
         "Content-Type": "application/json",
@@ -26,20 +26,20 @@
       "request_content_type": "application/json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "[\n\n]",
+      "response_body": "{\n  \"id\": 30,\n  \"question_id\": 165,\n  \"question_dependency_id\": 30,\n  \"metadata\": \"{}\",\n  \"maximum_chosen\": 1,\n  \"label\": \"rerum\",\n  \"created_at\": \"2017-04-27T13:25:27.504Z\",\n  \"updated_at\": \"2017-04-27T13:25:27.504Z\"\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\"",
+        "ETag": "W/\"5e5570ba6536f3cd48889ab034846f77\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "b3de8a42-7088-4682-bdb8-28412cd80c32",
-        "X-Runtime": "0.009949",
-        "Content-Length": "2"
+        "X-Request-Id": "7c5dc764-36df-4262-b3f2-d3554bded8ed",
+        "X-Runtime": "0.004134",
+        "Content-Length": "186"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/forms\" -X GET \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000api/v1/questions/165/choices/30\" -X GET \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

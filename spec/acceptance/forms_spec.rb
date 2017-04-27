@@ -3,7 +3,7 @@
 require 'spec_helper'
 require 'acceptance_helper'
 
-resource 'Questions' do
+resource 'Forms' do
   header 'Content-Type', 'application/json'
 
   let(:form) { FactoryGirl.create(:form) }

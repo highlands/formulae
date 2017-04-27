@@ -1,0 +1,115 @@
+Listing Sections
+----------------
+
+Request:
+  GET api/v1/sections/194
+  Content-Type: application/json
+  Cookie: 
+  Host: example.org
+
+Response:
+  Status: 200 OK
+  Cache-Control: max-age=0, private, must-revalidate
+  Content-Length: 184
+  Content-Type: application/json; charset=utf-8
+  ETag: W/"dcc996d0edb6cfc15633df63f1366e6f"
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: 07588e06-feb0-42d3-81ba-b68379d69ce7
+  X-Runtime: 0.009964
+  X-XSS-Protection: 1; mode=block
+
+  {
+    "id": 194,
+    "form_id": 221,
+    "name": "incidunt",
+    "order": 0,
+    "content": "Amet aperiam ea exercitationem fuga at.",
+    "created_at": "2017-04-27T13:25:27.683Z",
+    "updated_at": "2017-04-27T13:25:27.683Z"
+  }
+
+
+Getting a specific Section
+--------------------------
+
+Request:
+  GET api/v1/sections/195
+  Content-Type: application/json
+  Cookie: 
+  Host: example.org
+
+Response:
+  Status: 200 OK
+  Cache-Control: max-age=0, private, must-revalidate
+  Content-Length: 184
+  Content-Type: application/json; charset=utf-8
+  ETag: W/"7f5a84b4d49846b3fe8cc3b5cdb0a874"
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: 36e7b2d5-7e5b-4979-b209-a39ee9ec9936
+  X-Runtime: 0.002131
+  X-XSS-Protection: 1; mode=block
+
+  {
+    "id": 195,
+    "form_id": 222,
+    "name": "incidunt",
+    "order": 0,
+    "content": "Amet aperiam ea exercitationem fuga at.",
+    "created_at": "2017-04-27T13:25:27.700Z",
+    "updated_at": "2017-04-27T13:25:27.700Z"
+  }
+
+
+Updating a Section
+------------------
+
+Request:
+  PUT api/v1/sections/196
+  Content-Type: application/json
+  Cookie: 
+  Host: example.org
+
+  {"section":{"name":"name updated"}}
+
+Response:
+  Status: 200 OK
+  Cache-Control: max-age=0, private, must-revalidate
+  Content-Length: 188
+  Content-Type: application/json; charset=utf-8
+  ETag: W/"8694f4dd9e6d6b7fc2ac988090e59b14"
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: facc5019-a59e-421e-9d13-5cbaa65549e9
+  X-Runtime: 0.005607
+  X-XSS-Protection: 1; mode=block
+
+  {
+    "id": 196,
+    "name": "name updated",
+    "form_id": 223,
+    "order": 0,
+    "content": "Amet aperiam ea exercitationem fuga at.",
+    "created_at": "2017-04-27T13:25:27.708Z",
+    "updated_at": "2017-04-27T13:25:27.712Z"
+  }
+
+
+Deleting a Section
+------------------
+
+Request:
+  DELETE api/v1/sections/197
+  Content-Type: application/json
+  Cookie: 
+  Host: example.org
+
+Response:
+  Status: 204 No Content
+  Cache-Control: no-cache
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: de418ca8-cee7-4962-b45e-7c6bc3a69d25
+  X-Runtime: 0.009969
+  X-XSS-Protection: 1; mode=block

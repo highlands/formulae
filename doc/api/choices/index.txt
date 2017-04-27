@@ -1,0 +1,122 @@
+Listing Choices for a specific question
+---------------------------------------
+
+Request:
+  GET api/v1/questions/163/choices
+  Content-Type: application/json
+  Cookie: 
+  Host: example.org
+
+Response:
+  Status: 200 OK
+  Cache-Control: max-age=0, private, must-revalidate
+  Content-Length: 188
+  Content-Type: application/json; charset=utf-8
+  ETag: W/"c19ef8c64cb7ab75a53bfddd7bc97e41"
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: af43b2ff-cea1-4865-9b80-7941edfc5901
+  X-Runtime: 0.034937
+  X-XSS-Protection: 1; mode=block
+
+  [
+    {
+      "id": 29,
+      "question_id": 163,
+      "question_dependency_id": 29,
+      "metadata": "{}",
+      "maximum_chosen": 1,
+      "label": "rerum",
+      "created_at": "2017-04-27T13:25:27.440Z",
+      "updated_at": "2017-04-27T13:25:27.440Z"
+    }
+  ]
+
+
+Getting a specific Choice
+-------------------------
+
+Request:
+  GET api/v1/questions/165/choices/30
+  Content-Type: application/json
+  Cookie: 
+  Host: example.org
+
+Response:
+  Status: 200 OK
+  Cache-Control: max-age=0, private, must-revalidate
+  Content-Length: 186
+  Content-Type: application/json; charset=utf-8
+  ETag: W/"5e5570ba6536f3cd48889ab034846f77"
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: 7c5dc764-36df-4262-b3f2-d3554bded8ed
+  X-Runtime: 0.004134
+  X-XSS-Protection: 1; mode=block
+
+  {
+    "id": 30,
+    "question_id": 165,
+    "question_dependency_id": 30,
+    "metadata": "{}",
+    "maximum_chosen": 1,
+    "label": "rerum",
+    "created_at": "2017-04-27T13:25:27.504Z",
+    "updated_at": "2017-04-27T13:25:27.504Z"
+  }
+
+
+Updating a Choice
+-----------------
+
+Request:
+  PUT api/v1/questions/167/choices/31
+  Content-Type: application/json
+  Cookie: 
+  Host: example.org
+
+  {"choice":{"label":"label updated"}}
+
+Response:
+  Status: 200 OK
+  Cache-Control: max-age=0, private, must-revalidate
+  Content-Length: 194
+  Content-Type: application/json; charset=utf-8
+  ETag: W/"7c1a23eac6e69d24d9bbeeaf9b9df826"
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: 260afeed-6ca1-4c38-a2a2-53c0e37c70ba
+  X-Runtime: 0.011555
+  X-XSS-Protection: 1; mode=block
+
+  {
+    "id": 31,
+    "label": "label updated",
+    "question_id": 167,
+    "question_dependency_id": 31,
+    "metadata": "{}",
+    "maximum_chosen": 1,
+    "created_at": "2017-04-27T13:25:27.532Z",
+    "updated_at": "2017-04-27T13:25:27.543Z"
+  }
+
+
+Deleting a Choice
+-----------------
+
+Request:
+  DELETE api/v1/questions/169/choices/32
+  Content-Type: application/json
+  Cookie: 
+  Host: example.org
+
+Response:
+  Status: 204 No Content
+  Cache-Control: no-cache
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: 7679c1c2-18ba-4813-a1bf-7a8095e7dbf5
+  X-Runtime: 0.005470
+  X-XSS-Protection: 1; mode=block
+
+

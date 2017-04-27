@@ -1,0 +1,45 @@
+{
+  "resource": "Questions",
+  "resource_explanation": null,
+  "http_method": "PUT",
+  "route": "api/v1/forms/:form_id/questions/:id",
+  "description": "Updating a question",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "api/v1/forms/219/questions/172",
+      "request_body": "{\"question\":{\"key\":\"updated\"}}",
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"id\": 172,\n  \"key\": \"updated\",\n  \"label\": \"quae\",\n  \"content\": \"Error eaque quo ullam ipsam nihil accusamus iste.\",\n  \"order\": null,\n  \"hidden\": null,\n  \"question_type\": \"string\",\n  \"validate_as\": \"adipisci\"\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"0f83df0edbb6a8edfba0e73bee542d7a\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "577ee954-f411-4177-896a-22b05084ab54",
+        "X-Runtime": "0.005475",
+        "Content-Length": "180"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000api/v1/forms/219/questions/172\" -d '{\"question\":{\"key\":\"updated\"}}' -X PUT \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Forms API</title>
+    <title>Choices API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Forms API</h1>
+      <h1>Choices API</h1>
 
       <div class="article">
-        <h2>Getting a specific Form</h2>
-        <h3>GET api/v1/forms/:id</h3>
+        <h2>Deleting a Choice</h2>
+        <h3>DELETE api/v1/questions/:question_id/choices/:id</h3>
 
 
 
@@ -122,12 +122,12 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET api/v1/forms/216</pre>
+          <pre class="request route highlight">DELETE api/v1/questions/169/choices/32</pre>
 
 
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://localhost:3000api/v1/forms/216&quot; -X GET \
+            <pre class="request curl">curl &quot;http://localhost:3000api/v1/questions/169/choices/32&quot; -d &#39;&#39; -X DELETE \
 	-H &quot;Content-Type: application/json&quot; \
 	-H &quot;Host: example.org&quot; \
 	-H &quot;Cookie: &quot;</pre>
@@ -137,29 +137,11 @@ Cookie: </pre>
               <pre class="response headers">X-Frame-Options: SAMEORIGIN
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
-Content-Type: application/json; charset=utf-8
-ETag: W/&quot;e110c2a4b4aa0175b4c2fc38ecd892a5&quot;
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 9d8ac872-9c6f-4db3-a1ba-eb3129233c23
-X-Runtime: 0.023071
-Content-Length: 144</pre>
+Cache-Control: no-cache
+X-Request-Id: 7679c1c2-18ba-4813-a1bf-7a8095e7dbf5
+X-Runtime: 0.005470</pre>
             <h4>Status</h4>
-            <pre class="response status">200 OK</pre>
-              <h4>Body</h4>
-              <pre class="response body">{
-  &quot;id&quot;: 216,
-  &quot;application&quot;: {
-    &quot;id&quot;: 216,
-    &quot;created_at&quot;: &quot;2017-04-27T13:25:27.585Z&quot;,
-    &quot;updated_at&quot;: &quot;2017-04-27T13:25:27.585Z&quot;
-  },
-  &quot;sections&quot;: [
-
-  ],
-  &quot;questions&quot;: [
-
-  ]
-}</pre>
+            <pre class="response status">204 No Content</pre>
       </div>
     </div>
   </body>

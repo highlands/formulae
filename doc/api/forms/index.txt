@@ -3,6 +3,7 @@ Listing Forms
 
 Request:
   GET api/v1/forms
+  Content-Type: application/json
   Cookie: 
   Host: example.org
 
@@ -14,8 +15,8 @@ Response:
   ETag: W/"4f53cda18c2baa0c0354bb5f9a3ecbe5"
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
-  X-Request-Id: 9c11eb04-1e7b-463b-822a-4ed3012170a3
-  X-Runtime: 0.053400
+  X-Request-Id: b3de8a42-7088-4682-bdb8-28412cd80c32
+  X-Runtime: 0.009949
   X-XSS-Protection: 1; mode=block
 
   [
@@ -27,24 +28,55 @@ Getting a specific Form
 -----------------------
 
 Request:
-  GET api/v1/forms/
+  GET api/v1/forms/216
+  Content-Type: application/json
   Cookie: 
   Host: example.org
 
 Response:
   Status: 200 OK
   Cache-Control: max-age=0, private, must-revalidate
-  Content-Length: 2
+  Content-Length: 144
   Content-Type: application/json; charset=utf-8
-  ETag: W/"4f53cda18c2baa0c0354bb5f9a3ecbe5"
+  ETag: W/"e110c2a4b4aa0175b4c2fc38ecd892a5"
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
-  X-Request-Id: fc4f57d2-1340-4725-ae05-e11bdc907ca9
-  X-Runtime: 0.006249
+  X-Request-Id: 9d8ac872-9c6f-4db3-a1ba-eb3129233c23
+  X-Runtime: 0.023071
   X-XSS-Protection: 1; mode=block
 
-  [
+  {
+    "id": 216,
+    "application": {
+      "id": 216,
+      "created_at": "2017-04-27T13:25:27.585Z",
+      "updated_at": "2017-04-27T13:25:27.585Z"
+    },
+    "sections": [
   
-  ]
+    ],
+    "questions": [
+  
+    ]
+  }
+
+
+Deleting a form
+---------------
+
+Request:
+  DELETE api/v1/forms/217
+  Content-Type: application/json
+  Cookie: 
+  Host: example.org
+
+Response:
+  Status: 204 No Content
+  Cache-Control: no-cache
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: 75cb65c3-c378-4c5a-bfe3-3a345f4383c6
+  X-Runtime: 0.004324
+  X-XSS-Protection: 1; mode=block
 
 

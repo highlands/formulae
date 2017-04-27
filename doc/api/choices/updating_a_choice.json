@@ -1,0 +1,45 @@
+{
+  "resource": "Choices",
+  "resource_explanation": null,
+  "http_method": "PUT",
+  "route": "api/v1/questions/:question_id/choices/:id",
+  "description": "Updating a Choice",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "api/v1/questions/167/choices/31",
+      "request_body": "{\"choice\":{\"label\":\"label updated\"}}",
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"id\": 31,\n  \"label\": \"label updated\",\n  \"question_id\": 167,\n  \"question_dependency_id\": 31,\n  \"metadata\": \"{}\",\n  \"maximum_chosen\": 1,\n  \"created_at\": \"2017-04-27T13:25:27.532Z\",\n  \"updated_at\": \"2017-04-27T13:25:27.543Z\"\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"7c1a23eac6e69d24d9bbeeaf9b9df826\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "260afeed-6ca1-4c38-a2a2-53c0e37c70ba",
+        "X-Runtime": "0.011555",
+        "Content-Length": "194"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000api/v1/questions/167/choices/31\" -d '{\"choice\":{\"label\":\"label updated\"}}' -X PUT \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}
