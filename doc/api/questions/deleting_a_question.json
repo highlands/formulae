@@ -2,7 +2,7 @@
   "resource": "Questions",
   "resource_explanation": null,
   "http_method": "DELETE",
-  "route": "api/v1/forms/:form_id/questions/:id",
+  "route": "/api/v1/questions/:id",
   "description": "Deleting a question",
   "explanation": null,
   "parameters": [
@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "api/v1/forms/220/questions/173",
+      "request_path": "/api/v1/questions/314",
       "request_body": null,
       "request_headers": {
         "Content-Type": "application/json",
@@ -32,11 +32,11 @@
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "no-cache",
-        "X-Request-Id": "af421f6f-ef1f-46ac-a68a-fd40f0714f14",
-        "X-Runtime": "0.003229"
+        "X-Request-Id": "744ea065-7738-44d8-a14d-263e594e6017",
+        "X-Runtime": "0.003926"
       },
       "response_content_type": null,
-      "curl": "curl \"http://localhost:3000api/v1/forms/220/questions/173\" -d '' -X DELETE \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/questions/314\" -d '' -X DELETE \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

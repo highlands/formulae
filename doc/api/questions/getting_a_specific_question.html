@@ -110,7 +110,7 @@ table th, table td {
 
       <div class="article">
         <h2>Getting a specific Question</h2>
-        <h3>GET api/v1/forms/:form_id/questions/:id</h3>
+        <h3>GET /api/v1/questions/:id</h3>
 
 
 
@@ -122,12 +122,12 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET api/v1/forms/218/questions/171</pre>
+          <pre class="request route highlight">GET /api/v1/questions/312</pre>
 
 
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://localhost:3000api/v1/forms/218/questions/171&quot; -X GET \
+            <pre class="request curl">curl &quot;http://localhost:3000/api/v1/questions/312&quot; -X GET \
 	-H &quot;Content-Type: application/json&quot; \
 	-H &quot;Host: example.org&quot; \
 	-H &quot;Cookie: &quot;</pre>
@@ -138,23 +138,23 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;a55372c2325b0e341030360491bfc1e1&quot;
+ETag: W/&quot;49113e17e6890ee34bfe1fdfc67780bb&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: a072507f-307a-4da8-8f3a-63c41a489d09
-X-Runtime: 0.003644
-Content-Length: 180</pre>
+X-Request-Id: 23ad4859-4f87-497f-a054-e6105d0fb07d
+X-Runtime: 0.002878
+Content-Length: 168</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: 171,
-  &quot;key&quot;: &quot;officia&quot;,
-  &quot;label&quot;: &quot;quae&quot;,
-  &quot;content&quot;: &quot;Error eaque quo ullam ipsam nihil accusamus iste.&quot;,
+  &quot;id&quot;: 312,
+  &quot;key&quot;: &quot;consequatur&quot;,
+  &quot;label&quot;: &quot;ipsam&quot;,
+  &quot;content&quot;: &quot;Non est illo id alias quo.&quot;,
   &quot;order&quot;: null,
   &quot;hidden&quot;: null,
   &quot;question_type&quot;: &quot;string&quot;,
-  &quot;validate_as&quot;: &quot;adipisci&quot;
+  &quot;validate_as&quot;: &quot;necessitatibus&quot;
 }</pre>
       </div>
     </div>

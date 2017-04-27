@@ -110,7 +110,7 @@ table th, table td {
 
       <div class="article">
         <h2>Listing Questions for a specific form</h2>
-        <h3>GET api/v1/forms/:form_id/questions</h3>
+        <h3>GET /api/v1/sections/:section_id/questions/</h3>
 
 
 
@@ -122,12 +122,12 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET api/v1/forms/%3Aform_id/questions</pre>
+          <pre class="request route highlight">GET /api/v1/sections/375/questions/</pre>
 
 
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://localhost:3000api/v1/forms/%3Aform_id/questions&quot; -X GET \
+            <pre class="request curl">curl &quot;http://localhost:3000/api/v1/sections/375/questions/&quot; -X GET \
 	-H &quot;Content-Type: application/json&quot; \
 	-H &quot;Host: example.org&quot; \
 	-H &quot;Cookie: &quot;</pre>
@@ -138,16 +138,25 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;4f53cda18c2baa0c0354bb5f9a3ecbe5&quot;
+ETag: W/&quot;9c95886df9976c0ae11569386b89f055&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: ee6104b8-8e5a-48c5-af57-519fd35e1095
-X-Runtime: 0.005025
-Content-Length: 2</pre>
+X-Request-Id: c5916ac8-3a1f-40f4-a985-563167470f12
+X-Runtime: 0.008412
+Content-Length: 170</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">[
-
+  {
+    &quot;id&quot;: 311,
+    &quot;key&quot;: &quot;consequatur&quot;,
+    &quot;label&quot;: &quot;ipsam&quot;,
+    &quot;content&quot;: &quot;Non est illo id alias quo.&quot;,
+    &quot;order&quot;: null,
+    &quot;hidden&quot;: null,
+    &quot;question_type&quot;: &quot;string&quot;,
+    &quot;validate_as&quot;: &quot;necessitatibus&quot;
+  }
 ]</pre>
       </div>
     </div>

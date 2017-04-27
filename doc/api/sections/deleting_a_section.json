@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "api/v1/sections/197",
+      "request_path": "api/v1/sections/382",
       "request_body": null,
       "request_headers": {
         "Content-Type": "application/json",
@@ -32,11 +32,11 @@
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "no-cache",
-        "X-Request-Id": "de418ca8-cee7-4962-b45e-7c6bc3a69d25",
-        "X-Runtime": "0.009969"
+        "X-Request-Id": "c5c8aa46-885d-4251-8032-3e6e6c49e59a",
+        "X-Runtime": "0.005109"
       },
       "response_content_type": null,
-      "curl": "curl \"http://localhost:3000api/v1/sections/197\" -d '' -X DELETE \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000api/v1/sections/382\" -d '' -X DELETE \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

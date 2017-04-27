@@ -2,7 +2,7 @@
   "resource": "Questions",
   "resource_explanation": null,
   "http_method": "GET",
-  "route": "api/v1/forms/:form_id/questions",
+  "route": "/api/v1/sections/:section_id/questions/",
   "description": "Listing Questions for a specific form",
   "explanation": null,
   "parameters": [
@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "api/v1/forms/%3Aform_id/questions",
+      "request_path": "/api/v1/sections/375/questions/",
       "request_body": null,
       "request_headers": {
         "Content-Type": "application/json",
@@ -26,20 +26,20 @@
       "request_content_type": "application/json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "[\n\n]",
+      "response_body": "[\n  {\n    \"id\": 311,\n    \"key\": \"consequatur\",\n    \"label\": \"ipsam\",\n    \"content\": \"Non est illo id alias quo.\",\n    \"order\": null,\n    \"hidden\": null,\n    \"question_type\": \"string\",\n    \"validate_as\": \"necessitatibus\"\n  }\n]",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\"",
+        "ETag": "W/\"9c95886df9976c0ae11569386b89f055\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "ee6104b8-8e5a-48c5-af57-519fd35e1095",
-        "X-Runtime": "0.005025",
-        "Content-Length": "2"
+        "X-Request-Id": "c5916ac8-3a1f-40f4-a985-563167470f12",
+        "X-Runtime": "0.008412",
+        "Content-Length": "170"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/forms/%3Aform_id/questions\" -X GET \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/sections/375/questions/\" -X GET \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

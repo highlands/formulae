@@ -2,7 +2,7 @@
   "resource": "Choices",
   "resource_explanation": null,
   "http_method": "PUT",
-  "route": "api/v1/questions/:question_id/choices/:id",
+  "route": "/api/v1/choices/:id",
   "description": "Updating a Choice",
   "explanation": null,
   "parameters": [
@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "api/v1/questions/167/choices/31",
+      "request_path": "/api/v1/choices/75",
       "request_body": "{\"choice\":{\"label\":\"label updated\"}}",
       "request_headers": {
         "Content-Type": "application/json",
@@ -26,20 +26,20 @@
       "request_content_type": "application/json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"id\": 31,\n  \"label\": \"label updated\",\n  \"question_id\": 167,\n  \"question_dependency_id\": 31,\n  \"metadata\": \"{}\",\n  \"maximum_chosen\": 1,\n  \"created_at\": \"2017-04-27T13:25:27.532Z\",\n  \"updated_at\": \"2017-04-27T13:25:27.543Z\"\n}",
+      "response_body": "{\n  \"id\": 75,\n  \"label\": \"label updated\",\n  \"question_id\": 307,\n  \"question_dependency_id\": 75,\n  \"metadata\": \"{}\",\n  \"maximum_chosen\": 1,\n  \"created_at\": \"2017-04-27T19:04:44.820Z\",\n  \"updated_at\": \"2017-04-27T19:04:44.828Z\"\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"7c1a23eac6e69d24d9bbeeaf9b9df826\"",
+        "ETag": "W/\"f8a9b877d92823aaae232e282d4b2910\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "260afeed-6ca1-4c38-a2a2-53c0e37c70ba",
-        "X-Runtime": "0.011555",
+        "X-Request-Id": "1fe991a7-7a21-4f50-a920-2d4f251184e6",
+        "X-Runtime": "0.012641",
         "Content-Length": "194"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/questions/167/choices/31\" -d '{\"choice\":{\"label\":\"label updated\"}}' -X PUT \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/choices/75\" -d '{\"choice\":{\"label\":\"label updated\"}}' -X PUT \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

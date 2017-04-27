@@ -2,7 +2,7 @@
   "resource": "Choices",
   "resource_explanation": null,
   "http_method": "GET",
-  "route": "api/v1/questions/:question_id/choices",
+  "route": "/api/v1/questions/:question_id/choices",
   "description": "Listing Choices for a specific question",
   "explanation": null,
   "parameters": [
@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "api/v1/questions/163/choices",
+      "request_path": "/api/v1/questions/303/choices",
       "request_body": null,
       "request_headers": {
         "Content-Type": "application/json",
@@ -26,20 +26,20 @@
       "request_content_type": "application/json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "[\n  {\n    \"id\": 29,\n    \"question_id\": 163,\n    \"question_dependency_id\": 29,\n    \"metadata\": \"{}\",\n    \"maximum_chosen\": 1,\n    \"label\": \"rerum\",\n    \"created_at\": \"2017-04-27T13:25:27.440Z\",\n    \"updated_at\": \"2017-04-27T13:25:27.440Z\"\n  }\n]",
+      "response_body": "[\n  {\n    \"id\": 73,\n    \"question_id\": 303,\n    \"question_dependency_id\": 73,\n    \"metadata\": \"{}\",\n    \"maximum_chosen\": 1,\n    \"label\": \"ratione\",\n    \"created_at\": \"2017-04-27T19:04:44.733Z\",\n    \"updated_at\": \"2017-04-27T19:04:44.733Z\"\n  }\n]",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"c19ef8c64cb7ab75a53bfddd7bc97e41\"",
+        "ETag": "W/\"32ee9baf6ab49c6121e55c0e13f6adf1\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "af43b2ff-cea1-4865-9b80-7941edfc5901",
-        "X-Runtime": "0.034937",
-        "Content-Length": "188"
+        "X-Request-Id": "5ecf9e1c-c589-426a-afde-9625f56e01ba",
+        "X-Runtime": "0.027158",
+        "Content-Length": "190"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000api/v1/questions/163/choices\" -X GET \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/questions/303/choices\" -X GET \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

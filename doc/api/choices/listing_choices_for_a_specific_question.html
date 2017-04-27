@@ -110,7 +110,7 @@ table th, table td {
 
       <div class="article">
         <h2>Listing Choices for a specific question</h2>
-        <h3>GET api/v1/questions/:question_id/choices</h3>
+        <h3>GET /api/v1/questions/:question_id/choices</h3>
 
 
 
@@ -122,12 +122,12 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET api/v1/questions/163/choices</pre>
+          <pre class="request route highlight">GET /api/v1/questions/303/choices</pre>
 
 
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://localhost:3000api/v1/questions/163/choices&quot; -X GET \
+            <pre class="request curl">curl &quot;http://localhost:3000/api/v1/questions/303/choices&quot; -X GET \
 	-H &quot;Content-Type: application/json&quot; \
 	-H &quot;Host: example.org&quot; \
 	-H &quot;Cookie: &quot;</pre>
@@ -138,24 +138,24 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;c19ef8c64cb7ab75a53bfddd7bc97e41&quot;
+ETag: W/&quot;32ee9baf6ab49c6121e55c0e13f6adf1&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: af43b2ff-cea1-4865-9b80-7941edfc5901
-X-Runtime: 0.034937
-Content-Length: 188</pre>
+X-Request-Id: 5ecf9e1c-c589-426a-afde-9625f56e01ba
+X-Runtime: 0.027158
+Content-Length: 190</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">[
   {
-    &quot;id&quot;: 29,
-    &quot;question_id&quot;: 163,
-    &quot;question_dependency_id&quot;: 29,
+    &quot;id&quot;: 73,
+    &quot;question_id&quot;: 303,
+    &quot;question_dependency_id&quot;: 73,
     &quot;metadata&quot;: &quot;{}&quot;,
     &quot;maximum_chosen&quot;: 1,
-    &quot;label&quot;: &quot;rerum&quot;,
-    &quot;created_at&quot;: &quot;2017-04-27T13:25:27.440Z&quot;,
-    &quot;updated_at&quot;: &quot;2017-04-27T13:25:27.440Z&quot;
+    &quot;label&quot;: &quot;ratione&quot;,
+    &quot;created_at&quot;: &quot;2017-04-27T19:04:44.733Z&quot;,
+    &quot;updated_at&quot;: &quot;2017-04-27T19:04:44.733Z&quot;
   }
 ]</pre>
       </div>

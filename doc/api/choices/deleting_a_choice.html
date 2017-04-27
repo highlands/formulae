@@ -110,7 +110,7 @@ table th, table td {
 
       <div class="article">
         <h2>Deleting a Choice</h2>
-        <h3>DELETE api/v1/questions/:question_id/choices/:id</h3>
+        <h3>DELETE /api/v1/choices/:id</h3>
 
 
 
@@ -122,12 +122,12 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">DELETE api/v1/questions/169/choices/32</pre>
+          <pre class="request route highlight">DELETE /api/v1/choices/76</pre>
 
 
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://localhost:3000api/v1/questions/169/choices/32&quot; -d &#39;&#39; -X DELETE \
+            <pre class="request curl">curl &quot;http://localhost:3000/api/v1/choices/76&quot; -d &#39;&#39; -X DELETE \
 	-H &quot;Content-Type: application/json&quot; \
 	-H &quot;Host: example.org&quot; \
 	-H &quot;Cookie: &quot;</pre>
@@ -138,8 +138,8 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Cache-Control: no-cache
-X-Request-Id: 7679c1c2-18ba-4813-a1bf-7a8095e7dbf5
-X-Runtime: 0.005470</pre>
+X-Request-Id: b44f41af-e3a7-46d5-a5ee-5ebd1fbab23a
+X-Runtime: 0.007060</pre>
             <h4>Status</h4>
             <pre class="response status">204 No Content</pre>
       </div>

@@ -7,18 +7,17 @@ resource 'Questions' do
   header 'Content-Type', 'application/json'
 
   let(:q) { FactoryGirl.create(:question) }
+  let(:id) { q.id }
+  let(:section_id) { q.section.id }
 
-  get 'api/v1/forms/:form_id/questions' do
+  get '/api/v1/sections/:section_id/questions/' do
     example 'Listing Questions for a specific form' do
       do_request
       expect(status).to eq 200
     end
   end
 
-  get 'api/v1/forms/:form_id/questions/:id' do
-    let(:form_id) { q.form.id }
-    let(:id) { q.id }
-
+  get '/api/v1/questions/:id' do
     example 'Getting a specific Question' do
       do_request
 
@@ -36,7 +35,7 @@ resource 'Questions' do
     end
   end
 
-  put 'api/v1/forms/:form_id/questions/:id' do
+  put '/api/v1/questions/:id' do
     let(:new_value) { 'updated' }
     let(:raw_post) do
       {
@@ -46,9 +45,6 @@ resource 'Questions' do
       }.to_json
     end
 
-    let(:form_id) { q.form.id }
-    let(:id) { q.id }
-
     example_request 'Updating a question' do
       response = JSON.parse(response_body)
       expect(response['label']). to eq q.label
@@ -57,10 +53,7 @@ resource 'Questions' do
     end
   end
 
-  delete 'api/v1/forms/:form_id/questions/:id' do
-    let(:form_id) { q.form.id }
-    let(:id) { q.id }
-
+  delete '/api/v1/questions/:id' do
     example_request 'Deleting a question' do
       expect(status).to eq(204)
     end

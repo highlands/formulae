@@ -10,14 +10,14 @@ resource 'Choices' do
   let(:question_id) { choice.question.id }
   let(:id) { choice.id }
 
-  get 'api/v1/questions/:question_id/choices' do
+  get '/api/v1/questions/:question_id/choices' do
     example 'Listing Choices for a specific question' do
       do_request
       expect(status).to eq 200
     end
   end
 
-  get 'api/v1/questions/:question_id/choices/:id' do
+  get '/api/v1/choices/:id' do
     example 'Getting a specific Choice' do
       do_request
 
@@ -28,7 +28,7 @@ resource 'Choices' do
     end
   end
 
-  put 'api/v1/questions/:question_id/choices/:id' do
+  put '/api/v1/choices/:id' do
     let(:new_value) { 'label updated' }
     let(:raw_post) do
       {
@@ -45,7 +45,7 @@ resource 'Choices' do
     end
   end
 
-  delete 'api/v1/questions/:question_id/choices/:id' do
+  delete '/api/v1/choices/:id' do
     example_request 'Deleting a Choice' do
       expect(status).to eq(204)
     end

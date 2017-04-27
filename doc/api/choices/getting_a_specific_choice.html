@@ -110,7 +110,7 @@ table th, table td {
 
       <div class="article">
         <h2>Getting a specific Choice</h2>
-        <h3>GET api/v1/questions/:question_id/choices/:id</h3>
+        <h3>GET /api/v1/choices/:id</h3>
 
 
 
@@ -122,12 +122,12 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET api/v1/questions/165/choices/30</pre>
+          <pre class="request route highlight">GET /api/v1/choices/74</pre>
 
 
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://localhost:3000api/v1/questions/165/choices/30&quot; -X GET \
+            <pre class="request curl">curl &quot;http://localhost:3000/api/v1/choices/74&quot; -X GET \
 	-H &quot;Content-Type: application/json&quot; \
 	-H &quot;Host: example.org&quot; \
 	-H &quot;Cookie: &quot;</pre>
@@ -138,23 +138,23 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;5e5570ba6536f3cd48889ab034846f77&quot;
+ETag: W/&quot;eb93296782a1df39dcf8603cc51766a8&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 7c5dc764-36df-4262-b3f2-d3554bded8ed
-X-Runtime: 0.004134
-Content-Length: 186</pre>
+X-Request-Id: 7bcdf324-3469-4ec9-939f-1d52208699d1
+X-Runtime: 0.004354
+Content-Length: 188</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: 30,
-  &quot;question_id&quot;: 165,
-  &quot;question_dependency_id&quot;: 30,
+  &quot;id&quot;: 74,
+  &quot;question_id&quot;: 305,
+  &quot;question_dependency_id&quot;: 74,
   &quot;metadata&quot;: &quot;{}&quot;,
   &quot;maximum_chosen&quot;: 1,
-  &quot;label&quot;: &quot;rerum&quot;,
-  &quot;created_at&quot;: &quot;2017-04-27T13:25:27.504Z&quot;,
-  &quot;updated_at&quot;: &quot;2017-04-27T13:25:27.504Z&quot;
+  &quot;label&quot;: &quot;ratione&quot;,
+  &quot;created_at&quot;: &quot;2017-04-27T19:04:44.791Z&quot;,
+  &quot;updated_at&quot;: &quot;2017-04-27T19:04:44.791Z&quot;
 }</pre>
       </div>
     </div>

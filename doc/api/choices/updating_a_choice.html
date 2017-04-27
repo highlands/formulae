@@ -110,7 +110,7 @@ table th, table td {
 
       <div class="article">
         <h2>Updating a Choice</h2>
-        <h3>PUT api/v1/questions/:question_id/choices/:id</h3>
+        <h3>PUT /api/v1/choices/:id</h3>
 
 
 
@@ -122,14 +122,14 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PUT api/v1/questions/167/choices/31</pre>
+          <pre class="request route highlight">PUT /api/v1/choices/75</pre>
 
 
             <h4>Body</h4>
             <pre class="request body">{"choice":{"label":"label updated"}}</pre>
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://localhost:3000api/v1/questions/167/choices/31&quot; -d &#39;{&quot;choice&quot;:{&quot;label&quot;:&quot;label updated&quot;}}&#39; -X PUT \
+            <pre class="request curl">curl &quot;http://localhost:3000/api/v1/choices/75&quot; -d &#39;{&quot;choice&quot;:{&quot;label&quot;:&quot;label updated&quot;}}&#39; -X PUT \
 	-H &quot;Content-Type: application/json&quot; \
 	-H &quot;Host: example.org&quot; \
 	-H &quot;Cookie: &quot;</pre>
@@ -140,23 +140,23 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;7c1a23eac6e69d24d9bbeeaf9b9df826&quot;
+ETag: W/&quot;f8a9b877d92823aaae232e282d4b2910&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 260afeed-6ca1-4c38-a2a2-53c0e37c70ba
-X-Runtime: 0.011555
+X-Request-Id: 1fe991a7-7a21-4f50-a920-2d4f251184e6
+X-Runtime: 0.012641
 Content-Length: 194</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: 31,
+  &quot;id&quot;: 75,
   &quot;label&quot;: &quot;label updated&quot;,
-  &quot;question_id&quot;: 167,
-  &quot;question_dependency_id&quot;: 31,
+  &quot;question_id&quot;: 307,
+  &quot;question_dependency_id&quot;: 75,
   &quot;metadata&quot;: &quot;{}&quot;,
   &quot;maximum_chosen&quot;: 1,
-  &quot;created_at&quot;: &quot;2017-04-27T13:25:27.532Z&quot;,
-  &quot;updated_at&quot;: &quot;2017-04-27T13:25:27.543Z&quot;
+  &quot;created_at&quot;: &quot;2017-04-27T19:04:44.820Z&quot;,
+  &quot;updated_at&quot;: &quot;2017-04-27T19:04:44.828Z&quot;
 }</pre>
       </div>
     </div>

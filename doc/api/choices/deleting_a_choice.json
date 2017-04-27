@@ -2,7 +2,7 @@
   "resource": "Choices",
   "resource_explanation": null,
   "http_method": "DELETE",
-  "route": "api/v1/questions/:question_id/choices/:id",
+  "route": "/api/v1/choices/:id",
   "description": "Deleting a Choice",
   "explanation": null,
   "parameters": [
@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "api/v1/questions/169/choices/32",
+      "request_path": "/api/v1/choices/76",
       "request_body": null,
       "request_headers": {
         "Content-Type": "application/json",
@@ -32,11 +32,11 @@
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "no-cache",
-        "X-Request-Id": "7679c1c2-18ba-4813-a1bf-7a8095e7dbf5",
-        "X-Runtime": "0.005470"
+        "X-Request-Id": "b44f41af-e3a7-46d5-a5ee-5ebd1fbab23a",
+        "X-Runtime": "0.007060"
       },
       "response_content_type": null,
-      "curl": "curl \"http://localhost:3000api/v1/questions/169/choices/32\" -d '' -X DELETE \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/choices/76\" -d '' -X DELETE \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

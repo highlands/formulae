@@ -110,7 +110,7 @@ table th, table td {
 
       <div class="article">
         <h2>Updating a question</h2>
-        <h3>PUT api/v1/forms/:form_id/questions/:id</h3>
+        <h3>PUT /api/v1/questions/:id</h3>
 
 
 
@@ -122,14 +122,14 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PUT api/v1/forms/219/questions/172</pre>
+          <pre class="request route highlight">PUT /api/v1/questions/313</pre>
 
 
             <h4>Body</h4>
             <pre class="request body">{"question":{"key":"updated"}}</pre>
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://localhost:3000api/v1/forms/219/questions/172&quot; -d &#39;{&quot;question&quot;:{&quot;key&quot;:&quot;updated&quot;}}&#39; -X PUT \
+            <pre class="request curl">curl &quot;http://localhost:3000/api/v1/questions/313&quot; -d &#39;{&quot;question&quot;:{&quot;key&quot;:&quot;updated&quot;}}&#39; -X PUT \
 	-H &quot;Content-Type: application/json&quot; \
 	-H &quot;Host: example.org&quot; \
 	-H &quot;Cookie: &quot;</pre>
@@ -140,23 +140,23 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;0f83df0edbb6a8edfba0e73bee542d7a&quot;
+ETag: W/&quot;42031e1e63c126c9b8273b7346028f39&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 577ee954-f411-4177-896a-22b05084ab54
-X-Runtime: 0.005475
-Content-Length: 180</pre>
+X-Request-Id: 615f8161-d020-4862-9577-8cb25283c5cf
+X-Runtime: 0.004970
+Content-Length: 164</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: 172,
+  &quot;id&quot;: 313,
   &quot;key&quot;: &quot;updated&quot;,
-  &quot;label&quot;: &quot;quae&quot;,
-  &quot;content&quot;: &quot;Error eaque quo ullam ipsam nihil accusamus iste.&quot;,
+  &quot;label&quot;: &quot;ipsam&quot;,
+  &quot;content&quot;: &quot;Non est illo id alias quo.&quot;,
   &quot;order&quot;: null,
   &quot;hidden&quot;: null,
   &quot;question_type&quot;: &quot;string&quot;,
-  &quot;validate_as&quot;: &quot;adipisci&quot;
+  &quot;validate_as&quot;: &quot;necessitatibus&quot;
 }</pre>
       </div>
     </div>
