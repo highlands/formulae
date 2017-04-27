@@ -3,5 +3,5 @@
 class Form < ApplicationRecord
   has_many :questions, through: :sections
   belongs_to :application
-  has_many :sections
+  has_many :sections, dependent: :destroy
 end

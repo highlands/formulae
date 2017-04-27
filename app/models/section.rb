@@ -2,5 +2,5 @@
 
 class Section < ApplicationRecord
   belongs_to :form
-  has_one :question
+  has_one :question, dependent: :destroy
 end
