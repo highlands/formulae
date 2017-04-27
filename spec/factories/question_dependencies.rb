@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :question_dependency do
+    association :question, factory: :question, strategy: :build
   end
 end
