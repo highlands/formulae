@@ -27,14 +27,9 @@ resource 'Sections' do
   end
 
   put 'api/v1/sections/:id' do
+    parameter :name, scope: :section
     let(:new_value) { 'name updated' }
-    let(:raw_post) do
-      {
-        section: {
-          name: new_value
-        }
-      }.to_json
-    end
+    let(:name) { new_value }
 
     example_request 'Updating a Section' do
       response = JSON.parse(response_body)

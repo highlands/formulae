@@ -36,14 +36,9 @@ resource 'Questions' do
   end
 
   put '/api/v1/questions/:id' do
+    parameter :key, scope: :question
     let(:new_value) { 'updated' }
-    let(:raw_post) do
-      {
-        question: {
-          key: new_value
-        }
-      }.to_json
-    end
+    let(:key) { new_value }
 
     example_request 'Updating a question' do
       response = JSON.parse(response_body)

@@ -29,14 +29,9 @@ resource 'Choices' do
   end
 
   put '/api/v1/choices/:id' do
+    parameter :label, scope: :choice
     let(:new_value) { 'label updated' }
-    let(:raw_post) do
-      {
-        choice: {
-          label: new_value
-        }
-      }.to_json
-    end
+    let(:label) { new_value }
 
     example_request 'Updating a Choice' do
       response = JSON.parse(response_body)
