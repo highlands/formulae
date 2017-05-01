@@ -28,11 +28,16 @@ resource 'Form Submissions' do
   end
 
   post '/api/v1/form_submissions' do
+    parameter :form_id, scope: :form_submission
+    parameter :question_submissions, scope: :form_submission
+
+    let(:question_submissions) { FactoryGirl.create_list(:question_submission, 3) }
     let(:new_form_submission) { FactoryGirl.create(:form_submission) }
-    let(:raw_post) { new_form_submission.to_json }
+    let(:form_id) { new_form_submission.form.id }
 
     example_request 'Creating a form submission' do
       response = JSON.parse(response_body)
+      expect(response.keys).to eq %w[id form]
       expect(response['form']['application_id']).to eq new_form_submission.form.application_id
       expect(status).to eq(201)
     end

@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :form_submission do
-    association :form, factory: :form, strategy: :build
+    association :form, factory: :form
   end
 end

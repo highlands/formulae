@@ -9,12 +9,18 @@ class Api::V1::FormSubmissionsController < Api::V1::ApiController
   end
 
   def create
-    @form_submission = FormSubmission.new(form_submission_params)
+    ActiveRecord::Base.transaction do
+      @form_submission = FormSubmission.new(form_id: form_submission_params[:form_id])
+      if @form_submission.save!
+        question_submissions = form_submission_params[:question_submissions]
+        question_submissions.each do |qs|
+          QuestionSubmission.create!({ form_submission: @form_submission }.merge(qs))
+        end
 
-    if @form_submission.save
-      render json: @form_submission, status: :created
-    else
-      render json: @form_submission.errors, status: :unprocessable_entity
+        render json: @form_submission, status: :created
+      else
+        render json: @form_submission.errors, status: :unprocessable_entity
+      end
     end
   end
 
@@ -45,6 +51,12 @@ class Api::V1::FormSubmissionsController < Api::V1::ApiController
   end
 
   def form_submission_params
-    params.require(:form_submission).permit(:form_id)
+    params.require(:form_submission).permit(:form_id,
+                                            question_submissions: %i[
+                                              question_id
+                                              string
+                                              text
+                                              boolean
+                                            ])
   end
 end
