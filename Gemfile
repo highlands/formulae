@@ -29,6 +29,8 @@ gem 'coffee-rails', '~> 4.2'
 
 # Rspec api documentation
 gem 'rspec_api_documentation'
+# apitome - documentation viewer at /api/docs
+gem 'apitome'
 
 # Ranked Model
 gem 'ranked-model'
