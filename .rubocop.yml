@@ -6,6 +6,8 @@ AllCops:
     - 'spec/fixtures/**/*'
     - 'tmp/**/*'
     - 'db/schema.rb'
+    - 'db/migrate/**/*'
+    - 'config/initializers/devise.rb'
   TargetRubyVersion: 2.0
 
 Documentation:

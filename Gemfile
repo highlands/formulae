@@ -10,6 +10,11 @@ end
 # Active Model Serializers
 gem 'active_model_serializers', '~> 0.10.0'
 
+# Active Admin
+gem 'activeadmin'
+# Devise
+# https://github.com/plataformatec/devise/issues/4525
+gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'master'
 # Rack Cors
 gem 'rack-cors', require: 'rack/cors'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -44,7 +49,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
