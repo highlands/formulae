@@ -31,3 +31,4 @@ Question.create(section: s2,
                 key: 'Key', label: 'This is a label',
                 content: 'What is this question?',
                 question_type: 'string', hidden: false)
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
