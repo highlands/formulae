@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :form_submissions
-      resources :forms, shallow: true, except: %i[new create edit] do
+      resources :forms, shallow: true, except: %i[new edit] do
         resources :sections, except: %i[new edit] do
           resources :questions, except: %i[new create edit] do
             resources :choices, except: %i[new create edit]

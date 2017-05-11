@@ -20,6 +20,40 @@ class Api::V1::FormsController < Api::V1::ApiController
     end
   end
 
+  def create
+    @form = Form.new(form_params)
+    sections = params[:form][:sections]
+    questions = params[:form][:questions]
+
+    if @form.save!
+      sections.each do |s|
+        section = Section.create(
+          name: s[:name],
+          order: s[:order],
+          content: s[:content],
+          form: @form
+        )
+        @form.sections << section
+        @form.save!
+      end
+
+      questions.each do |q|
+        question = Question.create(
+          key: q[:key],
+          label: q[:label],
+          content: q[:content],
+          order: q[:order],
+          question_type: q[:type]
+        )
+        @form.questions << question
+        @form.save!
+      end
+      render json: @form, status: :created
+    else
+      render json: @form.errors, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     if @form.destroy
       render json: :no_content, status: :no_content
@@ -35,6 +69,6 @@ class Api::V1::FormsController < Api::V1::ApiController
   end
 
   def form_params
-    params.require(:form).permit(:application_id)
+    params.require(:form).permit(:application_id, :sections, :questions)
   end
 end
