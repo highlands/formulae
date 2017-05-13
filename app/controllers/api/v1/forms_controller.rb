@@ -21,16 +21,18 @@ class Api::V1::FormsController < Api::V1::ApiController
   end
 
   def create
-    @form = Form.new(form_params)
-    sections = params[:form][:sections]
-    if @form.save!
-      sections.each do |section_params|
-        section = create_section_for(section_params, @form)
-        create_question_for(section_params, section)
+    ActiveRecord::Base.transaction do
+      @form = Form.new(form_params)
+      sections = params[:form][:sections]
+      if @form.save!
+        sections.each do |section_params|
+          section = create_section_for(section_params, @form)
+          create_question_for(section_params, section)
+        end
+        render json: @form, status: :created
+      else
+        render json: @form.errors, status: :unprocessable_entity
       end
-      render json: @form, status: :created
-    else
-      render json: @form.errors, status: :unprocessable_entity
     end
   end
 
@@ -53,7 +55,7 @@ class Api::V1::FormsController < Api::V1::ApiController
   end
 
   def create_section_for(section_params, form)
-    Section.create(
+    Section.create!(
       name: section_params[:name],
       order: section_params[:order],
       content: section_params[:content],
@@ -63,7 +65,7 @@ class Api::V1::FormsController < Api::V1::ApiController
 
   def create_question_for(section_params, section)
     section_params[:questions].each do |q|
-      Question.create(
+      Question.create!(
         key: q[:key],
         label: q[:label],
         content: q[:content],
