@@ -20,6 +20,22 @@ class Api::V1::FormsController < Api::V1::ApiController
     end
   end
 
+  def create
+    ActiveRecord::Base.transaction do
+      @form = Form.new(form_params)
+      sections = params[:form][:sections]
+      if @form.save!
+        sections.each do |section_params|
+          section = create_section_for(section_params, @form)
+          create_question_for(section_params, section)
+        end
+        render json: @form, status: :created
+      else
+        render json: @form.errors, status: :unprocessable_entity
+      end
+    end
+  end
+
   def destroy
     if @form.destroy
       render json: :no_content, status: :no_content
@@ -35,6 +51,28 @@ class Api::V1::FormsController < Api::V1::ApiController
   end
 
   def form_params
-    params.require(:form).permit(:application_id)
+    params.require(:form).permit(:application_id, :sections, :questions)
+  end
+
+  def create_section_for(section_params, form)
+    Section.create!(
+      name: section_params[:name],
+      order: section_params[:order],
+      content: section_params[:content],
+      form: form
+    )
+  end
+
+  def create_question_for(section_params, section)
+    section_params[:questions].each do |q|
+      Question.create!(
+        key: q[:key],
+        label: q[:label],
+        content: q[:content],
+        order: q[:order],
+        question_type: q[:type],
+        section: section
+      )
+    end
   end
 end
