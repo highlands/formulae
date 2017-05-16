@@ -5,6 +5,7 @@ ActiveAdmin.register Question do
                 :label,
                 :content,
                 :order,
+                :required,
                 :hidden,
                 :question_type,
                 :validate_as,

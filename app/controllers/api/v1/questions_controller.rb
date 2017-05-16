@@ -40,6 +40,7 @@ class Api::V1::QuestionsController < Api::V1::ApiController
                                      :content,
                                      :order,
                                      :hidden,
+                                     :required,
                                      :question_type,
                                      :validate_as,
                                      :section_id)
