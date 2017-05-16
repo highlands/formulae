@@ -70,6 +70,7 @@ class Api::V1::FormsController < Api::V1::ApiController
         label: q[:label],
         content: q[:content],
         order: q[:order],
+        required: q[:required],
         question_type: q[:type],
         section: section
       )
