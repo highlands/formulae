@@ -20,15 +20,61 @@ s2 = Section.create(name: 'My second section',
                     order: 1,
                     content: 'This section is for a second test')
 
+s3 = Section.create(name: 'Section with question dependencies',
+                    form: f,
+                    order: 1,
+                    content: 'This section is for a test with question dependencies')
+
+s4 = Section.create(name: 'Section with question dependencies',
+                    form: f,
+                    order: 1,
+                    content: 'This section is for a test with question dependencies')
+
+s5 = Section.create(name: 'Section with question dependencies',
+                    form: f,
+                    order: 1,
+                    content: 'This section is for a test with question dependencies')
 Question.create(section: s1,
                 order: 0,
                 key: 'Key', label: 'This is a label',
-                content: 'What is this question?',
+                content: 'What is your Name?',
+                required: true,
                 question_type: 'string', hidden: false)
 
 Question.create(section: s2,
                 order: 1,
-                key: 'Key', label: 'This is a label',
-                content: 'What is this question?',
-                question_type: 'string', hidden: false)
+                key: 'Key', label: 'About You',
+                content: 'Tell me more about you',
+                question_type: 'text', hidden: false)
+
+q = Question.create(section: s3,
+                    order: 1,
+                    key: 'Key', label: 'Happiness',
+                    content: 'Are you happy?',
+                    question_type: 'boolean', hidden: false)
+
+choice1 = Choice.create(question: q, label: 'Yes')
+choice2 = Choice.create(question: q, label: 'No')
+
+q2 = Question.create(section: s4,
+                     order: 1,
+                     key: 'Key', label: 'Happiness',
+                     content: 'What makes you happy?',
+                     question_type: 'boolean', hidden: false)
+# There is a question dependency between
+# 'Are you happy?' -> Yes -> Go to What makes you happy?
+#                  -> No  -> Go to What makes you sad?
+question_dependency = QuestionDependency.create(question: q2)
+question_dependency.choices << choice1
+
+q3 = Question.create(section: s5,
+                     order: 1,
+                     key: 'Key', label: 'Happiness',
+                     content: 'What makes you sad?',
+                     question_type: 'boolean', hidden: false)
+
+question_dependency = QuestionDependency.create(question: q3)
+question_dependency.choices << choice2
+
+puts 'Creating an AdminUser'
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
