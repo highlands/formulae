@@ -22,7 +22,9 @@ resource 'Questions' do
       do_request
 
       response = JSON.parse(response_body)
-      expect(response.keys).to eq %w[id key label content required order hidden question_type validate_as]
+      expect(response.keys).to eq %w[id key label content
+                                     required order hidden question_type
+                                     validate_as question_dependency]
       expect(response['id']). to eq q.id
       expect(response['key']). to eq q.key
       expect(response['label']). to eq q.label
