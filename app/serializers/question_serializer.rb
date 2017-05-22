@@ -5,13 +5,15 @@ class QuestionSerializer < ActiveModel::Serializer
 
   # Not calling question dependency serializer, not sure why
   def question_dependency
-    if object.question_dependency
-      {
-        display: object.question_dependency.display,
-        choices: object.question_dependency.choices,
-        and: object.question_dependency.and
-      }
-    end
+    question_dependency_json(object) if object.question_dependency
+  end
+
+  private def question_dependency_json(object)
+    {
+      display: object.question_dependency.display,
+      choices: object.question_dependency.choices,
+      and: object.question_dependency.and
+    }
   end
 
   # FIXME
