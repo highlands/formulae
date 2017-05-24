@@ -22,7 +22,7 @@ RSpec.describe QuestionSubmission, type: :model do
       q
     end
 
-    it 'returns a validation error if maximum chosen is reached up' do
+    it 'returns a validation error if max_chosen has been reached' do
       expect do
         QuestionSubmission.create(question: question, string: 'YES')
       end.not_to raise_error

@@ -73,7 +73,7 @@ resource 'Form Submissions' do
     example_request 'Form submission failing' do
       response = JSON.parse(response_body)
       expect(response.keys).to eq ['error']
-      expect(response.values).to eq ['Validation failed: Maxchosen This choice has been reached up the max chosen']
+      expect(response.values).to eq ['Validation failed: Maxchosen This choice is no longer available']
       expect(status).to eq(500)
     end
   end

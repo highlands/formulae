@@ -25,7 +25,7 @@ class QuestionSubmission < ApplicationRecord
     return if choices.count.zero?
     max_chosen = choices.select { |l| l.label == value }.first.maximum_chosen
 
-    errors.add(:MaxChosen, 'This choice has been reached up the max chosen') if count > max_chosen
+    errors.add(:MaxChosen, 'This choice is no longer available') if count > max_chosen
   end
 
   private def count_choice_submitted
