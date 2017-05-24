@@ -14,6 +14,8 @@ class QuestionSubmission < ApplicationRecord
       text
     when 'boolean'
       boolean
+    when 'multi_select'
+      string
     end
   end
 

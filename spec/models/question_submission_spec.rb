@@ -15,6 +15,32 @@ RSpec.describe QuestionSubmission, type: :model do
     it { is_expected.to belong_to(:question) }
   end
 
+  describe 'when the question is string' do
+    let(:question) do
+      FactoryGirl.create(:question,
+                         question_type: 'string',
+                         content: 'question')
+    end
+
+    it 'returns the string as value' do
+      qs = QuestionSubmission.new(string: question.content, question: question)
+      expect(qs.value).to eq question.content
+    end
+  end
+
+  describe 'when the question is multi_select' do
+    let(:question) do
+      FactoryGirl.create(:question,
+                         question_type: 'multi_select',
+                         content: 'question')
+    end
+
+    it 'returns the string as value' do
+      qs = QuestionSubmission.new(string: question.content, question: question)
+      expect(qs.value).to eq question.content
+    end
+  end
+
   describe 'validate max chosen' do
     let(:question) do
       q = FactoryGirl.create(:question)
