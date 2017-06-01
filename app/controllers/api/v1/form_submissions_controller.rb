@@ -13,7 +13,7 @@ class Api::V1::FormSubmissionsController < Api::V1::ApiController
       begin
         @form_submission = FormSubmission.new(form_id: form_submission_params[:form_id])
         if @form_submission.save!
-          question_submissions = form_submission_params[:question_submissions]
+          question_submissions = params[:form_submission][:question_submissions].values.flatten
           question_submissions.each do |qs|
             QuestionSubmission.create!({ form_submission: @form_submission }.merge(qs))
           end
@@ -56,11 +56,6 @@ class Api::V1::FormSubmissionsController < Api::V1::ApiController
 
   def form_submission_params
     params.require(:form_submission).permit(:form_id,
-                                            question_submissions: %i[
-                                              question_id
-                                              string
-                                              text
-                                              boolean
-                                            ])
+                                            question_submissions: Hash)
   end
 end
