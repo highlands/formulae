@@ -22,23 +22,24 @@ RSpec.describe Api::V1::FormSubmissionsController, type: :request do
 
     context 'when there is multi_select' do
       let!(:form) { FactoryGirl.create(:form) }
-      let!(:question1) { FactoryGirl.create(:question, question_type: 'multi_select') }
+      let!(:question1) { FactoryGirl.create(:question, id: 1, question_type: 'multi_select') }
       let(:question_submission1) { FactoryGirl.build(:question_submission, string: 'foo', question: question1) }
       let(:question_submission2) { FactoryGirl.build(:question_submission, string: 'bar', question: question1) }
       let(:question_submissions) do
-        [question_submission1, question_submission2]
+        {
+          '1' => [[
+            question_submission1.attributes.slice('question_id', 'string'),
+            question_submission2.attributes.slice('question_id', 'string')
+          ]]
+        }
       end
 
       it 'creates question submissions for multi_select' do
-        params_qs = question_submissions.map do |s|
-          s.attributes.slice('question_id', 'string')
-        end
-
         expect do
           post api_v1_form_submissions_path,
                params: {
                  form_submission: { form_id: form.id,
-                                    question_submissions: params_qs }
+                                    question_submissions: question_submissions }
                }
         end.to change { QuestionSubmission.count }.by(2)
         qs1, qs2 = QuestionSubmission.all
@@ -50,24 +51,32 @@ RSpec.describe Api::V1::FormSubmissionsController, type: :request do
     context 'when there is no multi_select' do
       context 'question submissions' do
         let!(:form) { FactoryGirl.create(:form) }
-        let!(:question1) { FactoryGirl.create(:question, question_type: 'string') }
-        let!(:question2) { FactoryGirl.create(:question, question_type: 'text') }
-        let!(:question3) { FactoryGirl.create(:question, question_type: 'boolean') }
+        let!(:question1) { FactoryGirl.create(:question, id: 1, question_type: 'string') }
+        let!(:question2) { FactoryGirl.create(:question, id: 2, question_type: 'text') }
+        let!(:question3) { FactoryGirl.create(:question, id: 3, question_type: 'boolean') }
         let(:question_submission1) { FactoryGirl.build(:question_submission, string: 'foo', question: question1) }
         let(:question_submission2) { FactoryGirl.build(:question_submission, text: "foo\nbar", question: question2) }
         let(:question_submission3) { FactoryGirl.build(:question_submission, boolean: true, question: question3) }
-        let(:question_submissions) { [question_submission1, question_submission2, question_submission3] }
+        let(:question_submissions) do
+          {
+            '1' => [[
+              question_submission1.attributes.slice('question_id', 'string', 'text', 'boolean')
+            ]],
+            '2' => [[
+              question_submission2.attributes.slice('question_id', 'string', 'text', 'boolean')
+            ]],
+            '3' => [[
+              question_submission3.attributes.slice('question_id', 'string', 'text', 'boolean')
+            ]]
+          }
+        end
 
         it 'creates question submissions' do
-          params_qs = question_submissions.map do |s|
-            s.attributes.slice('question_id', 'string', 'text', 'boolean')
-          end
-
           expect do
             post api_v1_form_submissions_path,
                  params: {
                    form_submission: { form_id: form.id,
-                                      question_submissions: params_qs }
+                                      question_submissions: question_submissions }
                  }
           end.to change { QuestionSubmission.count }.by(3)
           qs1, qs2, qs3 = QuestionSubmission.all
