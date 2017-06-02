@@ -39,7 +39,13 @@ resource 'Form Submissions' do
     end
 
     let(:question_submissions) do
-      FactoryGirl.build_list(:question_submission, 1, question: @q, string: 'yes')
+      question_submission_list = FactoryGirl.build_list(:question_submission, 1, question: @q, string: 'yes')
+      desired_hash = {}
+      question_submission_list.map do |qs|
+        value = qs.slice(:question_id, :string, :text, :boolean)
+        desired_hash[qs.question_id] = [value]
+      end
+      desired_hash
     end
 
     let(:new_form_submission) { FactoryGirl.create(:form_submission) }
@@ -65,8 +71,26 @@ resource 'Form Submissions' do
     end
 
     let(:question_submissions) do
-      FactoryGirl.build_list(:question_submission, 3, question: @q, string: 'yes')
+      # format:
+      # {
+      #   "1": [[{question_id: 1, string: "yes", boolean: true}]],
+      #   "2": [
+      #           [
+      #             {question_id: 2, string: "yes", boolean: true},
+      #             {question_id: 2, string: "yes", boolean: true}
+      #           ]
+      #         ]
+      # }
+      question_submission_list = FactoryGirl.build_list(:question_submission, 3, question: @q, string: 'yes')
+      desired_hash = {}
+      question_submission_list.map do |qs|
+        value = qs.slice(:question_id, :string, :text, :boolean)
+        desired_hash[qs.question_id] << [value] if desired_hash[qs.question_id]
+        desired_hash[qs.question_id] = [value] unless desired_hash[qs.question_id]
+      end
+      desired_hash
     end
+
     let(:new_form_submission) { FactoryGirl.create(:form_submission) }
     let(:form_id) { new_form_submission.form.id }
 
