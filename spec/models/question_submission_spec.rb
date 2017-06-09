@@ -8,6 +8,7 @@ RSpec.describe QuestionSubmission, type: :model do
     it { is_expected.to respond_to(:text) }
     it { is_expected.to respond_to(:boolean) }
     it { is_expected.to respond_to(:multi_select_id) }
+    it { is_expected.to respond_to(:composite) }
   end
 
   describe 'relations' do
