@@ -16,6 +16,8 @@ class QuestionSubmission < ApplicationRecord
       boolean
     when 'multi_select'
       string
+    when 'address'
+      composite
     end
   end
 
