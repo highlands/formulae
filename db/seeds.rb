@@ -59,7 +59,7 @@ q = Question.create(section: s3,
                     order: 1,
                     key: 'Key', label: 'Happiness',
                     content: 'Are you happy?',
-                    question_type: 'boolean', hidden: false)
+                    question_type: 'select', hidden: false)
 
 choice1 = Choice.create(question: q, label: 'Yes')
 choice2 = Choice.create(question: q, label: 'No')
@@ -68,20 +68,20 @@ q2 = Question.create(section: s4,
                      order: 1,
                      key: 'Key', label: 'Happiness',
                      content: 'What makes you happy?',
-                     question_type: 'boolean', hidden: false)
+                     question_type: 'text', hidden: false)
 # There is a question dependency between
 # 'Are you happy?' -> Yes -> Go to What makes you happy?
 #                  -> No  -> Go to What makes you sad?
-question_dependency = QuestionDependency.create(question: q2)
+question_dependency = QuestionDependency.create(question: q2, display: true)
 question_dependency.choices << choice1
 
 q3 = Question.create(section: s5,
                      order: 1,
                      key: 'Key', label: 'Happiness',
                      content: 'What makes you sad?',
-                     question_type: 'boolean', hidden: false)
+                     question_type: 'text', hidden: false)
 
-question_dependency = QuestionDependency.create(question: q3)
+question_dependency = QuestionDependency.create(question: q3, display: true)
 question_dependency.choices << choice2
 
 puts 'Creating an AdminUser'
