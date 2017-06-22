@@ -68,12 +68,13 @@ class Api::V1::FormsController < Api::V1::ApiController
     # we are permitting it to be used.
     permitted = params
                 .require(:form)
-                .permit(:id, :completion_content, :application_id, sections: [:id, :form_id, :name, :order, :content, :_destroy,
-                                                         questions: %i[
-                                                           id key label content order hidden
-                                                           question_type validate_as section_id
-                                                           required placeholder _destroy
-                                                         ]])
+                .permit(:id, :completion_content, :application_id,
+                        sections: [:id, :form_id, :name, :order, :content, :_destroy,
+                                   questions: %i[
+                                     id key label content order hidden
+                                     question_type validate_as section_id
+                                     required placeholder _destroy
+                                   ]])
     permitted[:sections_attributes] = permitted.delete(:sections)
     permitted[:sections_attributes].each do |section|
       section[:questions_attributes] = section.delete(:questions)
