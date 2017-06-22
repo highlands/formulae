@@ -12,24 +12,21 @@ class Api::V1::FormsController < Api::V1::ApiController
     render json: @form
   end
 
-  def update
-    if @form.update_attributes(form_params)
-      render json: @form, status: :ok
-    else
-      render json: @form.errors, status: :unprocessable_entity
+  def create
+    ActiveRecord::Base.transaction do
+      @form = Form.find(form_params[:id])
+      if @form.update_attributes!(form_params)
+        render json: @form, status: :created
+      else
+        render json: @form.errors, status: :unprocessable_entity
+      end
     end
   end
 
-  def create
+  def update
     ActiveRecord::Base.transaction do
-      @form = Form.new(form_params)
-      sections = params[:form][:sections]
-      if @form.save!
-        sections.each do |section_params|
-          section = create_section_for(section_params, @form)
-          create_question_for(section_params, section)
-        end
-        render json: @form, status: :created
+      if @form.update_attributes!(form_params)
+        render json: @form, status: :ok
       else
         render json: @form.errors, status: :unprocessable_entity
       end
@@ -51,31 +48,25 @@ class Api::V1::FormsController < Api::V1::ApiController
   end
 
   def form_params
-    params.require(:form).permit(:application_id, :completion_content, :sections, :questions)
+    make_form_params
   end
 
-  def create_section_for(section_params, form)
-    Section.create!(
-      name: section_params[:name],
-      order: section_params[:order],
-      content: section_params[:content],
-      form: form
-    )
-  end
-
-  def create_question_for(section_params, section)
-    section_params[:questions].each do |q|
-      Question.create!(
-        key: q[:key],
-        label: q[:label],
-        content: q[:content],
-        order: q[:order],
-        placeholder: q[:placeholder],
-        validate_as: q[:validate_as],
-        required: q[:required],
-        question_type: q[:question_type],
-        section: section
-      )
+  private def make_form_params
+    # This make a standard for our form_params.
+    # Here we are passing the correct parameter to work with nested_params and
+    # we are permitting it to be used.
+    permitted = params
+                .require(:form)
+                .permit(:id, :application_id, sections: [:id, :form_id, :name, :order, :content, :_destroy,
+                                                         questions: %i[
+                                                           id key label content order hidden
+                                                           question_type validate_as section_id
+                                                           required placeholder _destroy
+                                                         ]])
+    permitted[:sections_attributes] = permitted.delete(:sections)
+    permitted[:sections_attributes].each do |section|
+      section[:questions_attributes] = section.delete(:questions)
     end
+    permitted
   end
 end
