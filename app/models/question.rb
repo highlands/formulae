@@ -5,6 +5,7 @@ class Question < ApplicationRecord
   has_many :question_submissions
   has_many :choices, dependent: :destroy
   has_one :question_dependency
+  accepts_nested_attributes_for :choices, allow_destroy: true
 
   delegate :form, to: :section
 end
