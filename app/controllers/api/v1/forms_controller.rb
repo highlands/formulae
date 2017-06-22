@@ -73,10 +73,9 @@ class Api::V1::FormsController < Api::V1::ApiController
                                    questions: [:id, :key, :label, :content, :order, :hidden,
                                                :question_type, :validate_as, :section_id, :required,
                                                :placeholder, :_destroy,
-                                               choices: [
-                                                 :metadata, :maximum_chosen, :label
-                                               ]
-                                   ]])
+                                               choices: %i[
+                                                 metadata maximum_chosen label
+                                               ]]])
     permitted[:sections_attributes] = permitted.delete(:sections)
     permitted[:sections_attributes].each do |section|
       section[:questions_attributes] = section.delete(:questions)
