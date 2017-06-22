@@ -70,14 +70,18 @@ class Api::V1::FormsController < Api::V1::ApiController
                 .require(:form)
                 .permit(:id, :completion_content, :application_id,
                         sections: [:id, :form_id, :name, :order, :content, :_destroy,
-                                   questions: %i[
-                                     id key label content order hidden
-                                     question_type validate_as section_id
-                                     required placeholder _destroy
-                                   ]])
+                                   questions: [:id, :key, :label, :content, :order, :hidden,
+                                               :question_type, :validate_as, :section_id, :required,
+                                               :placeholder, :_destroy,
+                                               choices: %i[
+                                                 metadata maximum_chosen label
+                                               ]]])
     permitted[:sections_attributes] = permitted.delete(:sections)
     permitted[:sections_attributes].each do |section|
       section[:questions_attributes] = section.delete(:questions)
+      section[:questions_attributes].each do |question|
+        question[:choices_attributes] = question.delete(:choices)
+      end
     end
     permitted
   end
