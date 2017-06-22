@@ -80,7 +80,8 @@ class Api::V1::FormsController < Api::V1::ApiController
     permitted[:sections_attributes].each do |section|
       section[:questions_attributes] = section.delete(:questions)
       section[:questions_attributes].each do |question|
-        question[:choices_attributes] = question.delete(:choices)
+        choices_attributes = question[:choices] ? question.delete(:choices) : []
+        question[:choices_attributes] = choices_attributes
       end
     end
     permitted
