@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Api::V1::FormsController < Api::V1::ApiController
-  before_action :find_form, only: %i[show destroy update]
+  before_action :find_form, only: %i[show destroy]
 
   def index
     @forms = Form.all
@@ -14,8 +14,19 @@ class Api::V1::FormsController < Api::V1::ApiController
 
   def create
     ActiveRecord::Base.transaction do
-      @form = Form.find(form_params[:id])
-      if @form.update_attributes!(form_params)
+      @form = Form.find_by(id: form_params[:id])
+      if !@form
+        @form = Form.new(form_params)
+        render_create
+      else
+        render_update
+      end
+    end
+  end
+
+  private def render_create
+    ActiveRecord::Base.transaction do
+      if @form.save!
         render json: @form, status: :created
       else
         render json: @form.errors, status: :unprocessable_entity
@@ -23,7 +34,7 @@ class Api::V1::FormsController < Api::V1::ApiController
     end
   end
 
-  def update
+  private def render_update
     ActiveRecord::Base.transaction do
       if @form.update_attributes!(form_params)
         render json: @form, status: :ok
@@ -57,7 +68,7 @@ class Api::V1::FormsController < Api::V1::ApiController
     # we are permitting it to be used.
     permitted = params
                 .require(:form)
-                .permit(:id, :application_id, sections: [:id, :form_id, :name, :order, :content, :_destroy,
+                .permit(:id, :completion_content, :application_id, sections: [:id, :form_id, :name, :order, :content, :_destroy,
                                                          questions: %i[
                                                            id key label content order hidden
                                                            question_type validate_as section_id
