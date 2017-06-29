@@ -2,6 +2,7 @@
 
 class Api::V1::FormsController < Api::V1::ApiController
   before_action :find_form, only: %i[show destroy]
+  before_action :can_create_form, only: :create
 
   def index
     @forms = @application.forms.all
@@ -79,5 +80,10 @@ class Api::V1::FormsController < Api::V1::ApiController
       end
     end
     permitted
+  end
+
+  def can_create_form
+    can = Authorization.can_create_form?(@api_key)
+    render json: { error: "You don't have permission for creating." }, status: 401 unless can
   end
 end
