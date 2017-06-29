@@ -37,13 +37,6 @@ resource 'Form Submissions' do
       parameter :form_id, scope: :form_submission
       parameter :question_submissions, scope: :form_submission
 
-      before do
-        f = Form.find(form_id)
-        @q = f.questions.first
-        @q.choices << Choice.create(label: 'yes', maximum_chosen: 3)
-        @q.save!
-      end
-
       let(:question_submissions) do
         question_submission_list = FactoryGirl.build_list(:question_submission, 1, question: @q, string: 'yes')
         desired_hash = {}
@@ -56,6 +49,16 @@ resource 'Form Submissions' do
 
       let(:new_form_submission) { FactoryGirl.create(:form_submission) }
       let(:form_id) { new_form_submission.form.id }
+
+      before do
+        f = Form.find(form_id)
+        @q = f.questions.first
+        @q.choices << Choice.create(label: 'yes', maximum_chosen: 3)
+        @q.save!
+
+        api_key.submitter = true
+        api_key.save!
+      end
 
       example_request 'Creating a form submission' do
         response = JSON.parse(response_body)
@@ -74,6 +77,9 @@ resource 'Form Submissions' do
         @q = f.questions.first
         @q.choices << Choice.create(label: 'yes', maximum_chosen: 1)
         @q.save!
+
+        api_key.submitter = true
+        api_key.save!
       end
 
       let(:question_submissions) do
