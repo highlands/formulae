@@ -12,6 +12,10 @@ class Authorization
       api_key.submitter?
     end
 
+    def can_see_form_submission?(api_key)
+      api_key.analytics?
+    end
+
     def can_edit_form_submission?(api_key, application, form_id, form_submission_id); end
   end
 end

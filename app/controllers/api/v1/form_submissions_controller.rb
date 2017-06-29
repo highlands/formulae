@@ -3,6 +3,7 @@
 class Api::V1::FormSubmissionsController < Api::V1::ApiController
   before_action :find_form_submission, only: %i[show destroy update]
   before_action :can_create_form_submission, only: :create
+  before_action :can_see_form_submission, only: %i[index show]
 
   def index
     @form_submisions = FormSubmissions.all
@@ -66,5 +67,10 @@ class Api::V1::FormSubmissionsController < Api::V1::ApiController
   def can_create_form_submission
     can = Authorization.can_submit_form?(@api_key)
     render json: { error: "You don't have permission to submit a form." }, status: 401 unless can
+  end
+
+  def can_see_form_submission
+    can = Authorization.can_see_form_submission?(@api_key)
+    render json: { error: "You don't have permission to see this form submission." }, status: 401 unless can
   end
 end

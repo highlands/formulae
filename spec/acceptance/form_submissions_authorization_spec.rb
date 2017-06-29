@@ -9,6 +9,66 @@ resource 'Form Submissions Authorization' do
   header 'Content-Type', 'application/json'
   header 'Authorization', :authorization
 
+  context 'With ANALYTICS Api Key' do
+    let(:form_submission) { FactoryGirl.create(:form_submission) }
+    let(:api_key) { form_submission.form.application.api_keys.first }
+    let(:authorization) { "Bearer #{api_key.token}" }
+    let(:id) { form_submission.id }
+
+    before do
+      api_key.analytics = true
+      api_key.save!
+    end
+
+    get '/api/v1/form_submissions/:id' do
+      example 'Listing All Questions Submissions' do
+        do_request
+        expect(status).to eq 200
+      end
+    end
+
+    get '/api/v1/form_submissions/:id' do
+      example 'Getting a specific Form Submission' do
+        do_request
+
+        response = JSON.parse(response_body)
+        expect(response.keys).to eq %w[id form question_submissions]
+        expect(response['id']). to eq form_submission.id
+        expect(status).to eq 200
+      end
+    end
+  end
+
+  context 'Without ANALYTICS Api Key' do
+    let(:form_submission) { FactoryGirl.create(:form_submission) }
+    let(:api_key) { form_submission.form.application.api_keys.first }
+    let(:authorization) { "Bearer #{api_key.token}" }
+    let(:id) { form_submission.id }
+
+    before do
+      api_key.analytics = false
+      api_key.save!
+    end
+
+    get '/api/v1/form_submissions/:id' do
+      example 'Listing All Questions Submissions' do
+        do_request
+        expect(status).to eq 401
+      end
+    end
+
+    get '/api/v1/form_submissions/:id' do
+      example 'Getting a specific Form Submission' do
+        do_request
+
+        response = JSON.parse(response_body)
+        expect(response.keys).to eq %w[error]
+        expect(response['error']). to eq "You don't have permission to see this form submission."
+        expect(status).to eq 401
+      end
+    end
+  end
+
   context 'With SUBMMITTER Api Key' do
     let(:form_submission) { FactoryGirl.create(:form_submission) }
     let(:api_key) { form_submission.form.application.api_keys.first }

@@ -15,6 +15,11 @@ resource 'Form Submissions' do
     let(:authorization) { "Bearer #{api_key.token}" }
     let(:id) { form_submission.id }
 
+    before do
+      api_key.analytics = true
+      api_key.save!
+    end
+
     get '/api/v1/form_submissions/:id' do
       example 'Listing All Questions Submissions' do
         do_request
