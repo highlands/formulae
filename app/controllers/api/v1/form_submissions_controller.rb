@@ -2,6 +2,7 @@
 
 class Api::V1::FormSubmissionsController < Api::V1::ApiController
   before_action :find_form_submission, only: %i[show destroy update]
+  before_action :can_create_form_submission, only: :create
 
   def index
     @form_submisions = FormSubmissions.all
@@ -60,5 +61,10 @@ class Api::V1::FormSubmissionsController < Api::V1::ApiController
   def form_submission_params
     params.require(:form_submission).permit(:form_id,
                                             question_submissions: Hash)
+  end
+
+  def can_create_form_submission
+    can = Authorization.can_submit_form?(@api_key)
+    render json: { error: "You don't have permission to submit a form." }, status: 401 unless can
   end
 end
