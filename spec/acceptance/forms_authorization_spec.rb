@@ -31,7 +31,7 @@ resource 'Forms' do
       end
     end
 
-    context 'Without Authorization' do
+    context 'With Authorization' do
       let(:api_key) { FactoryGirl.create(:api_key, :creator) }
       let(:authorization) { "Bearer #{api_key.token}" }
 
