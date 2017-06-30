@@ -10,6 +10,12 @@ RSpec.describe Api::V1::FormSubmissionsController, type: :request do
       let(:form_id) { new_form_submission.form.id }
       let(:token) { new_form_submission.form.application.api_keys.first.token }
 
+      before do
+        api_key = ApiKey.find_by(token: token)
+        api_key.submitter = true
+        api_key.save!
+      end
+
       it 'creates only one form submission' do
         expect do
           post api_v1_form_submissions_path,
@@ -35,6 +41,12 @@ RSpec.describe Api::V1::FormSubmissionsController, type: :request do
         }
       end
       let(:token) { form.application.api_keys.first.token }
+
+      before do
+        api_key = ApiKey.find_by(token: token)
+        api_key.submitter = true
+        api_key.save!
+      end
 
       it 'creates question submissions for multi_select' do
         expect do
@@ -73,6 +85,12 @@ RSpec.describe Api::V1::FormSubmissionsController, type: :request do
           }
         end
         let(:token) { form.application.api_keys.first.token }
+
+        before do
+          api_key = ApiKey.find_by(token: token)
+          api_key.submitter = true
+          api_key.save!
+        end
 
         it 'creates question submissions' do
           expect do

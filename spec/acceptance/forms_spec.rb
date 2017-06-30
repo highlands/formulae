@@ -17,6 +17,11 @@ resource 'Forms' do
     post '/api/v1/forms' do
       let(:new_form_object) { FormMethods.build_a_new_form }
 
+      before do
+        api_key.creator = true
+        api_key.save!
+      end
+
       let(:form) { FormMethods.create_params_for(new_form_object) }
 
       parameter :form
@@ -37,6 +42,12 @@ resource 'Forms' do
         updated_form = FormMethods.create_params_for(form_object)
         updated_form[:completion_content] = new_completion_content
         updated_form
+      end
+
+      before do
+        api_key = form_object.application.api_keys.first
+        api_key.creator = true
+        api_key.save!
       end
 
       parameter :form
