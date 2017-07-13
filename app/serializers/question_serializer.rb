@@ -14,7 +14,7 @@ class QuestionSerializer < ActiveModel::Serializer
   private def question_dependency_json(object)
     {
       display: object.question_dependency.display,
-      choices: object.question_dependency.choices,
+      question_dependency_choices: object.question_dependency.question_dependency_choices,
       and: object.question_dependency.and
     }
   end

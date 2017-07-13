@@ -16,6 +16,7 @@ class Api::V1::FormsController < Api::V1::ApiController
   def create
     @form = @application.forms.find_or_initialize_by(id: form_params[:id])
     if !@form.persisted?
+      byebug
       @form = @application.forms.new(form_params)
       render_create
     else
@@ -68,6 +69,15 @@ class Api::V1::FormsController < Api::V1::ApiController
                                    questions: [:id, :key, :label, :content, :order, :hidden,
                                                :question_type, :validate_as, :section_id, :required,
                                                :placeholder, :_destroy,
+                                               question_dependency: [
+                                                 :and,
+                                                 :display,
+                                                 choices: [
+                                                   :label,
+                                                   :metadata,
+                                                   :maximum_chosen
+                                                 ],
+                                               ],
                                                choices: %i[
                                                  id metadata maximum_chosen label
                                                ]]])
@@ -77,6 +87,10 @@ class Api::V1::FormsController < Api::V1::ApiController
       section[:questions_attributes].each do |question|
         choices_attributes = question[:choices] ? question.delete(:choices) : []
         question[:choices_attributes] = choices_attributes
+        question_dependency_attributes = question[:question_dependency] ? question.delete(:question_dependency) : nil
+        question_dependency_choices_attributes = question_dependency_attributes[:choices] ? question_dependency_attributes.delete(:choices) : []
+        question_dependency_attributes[:question_dependency_choices_attributes] = question_dependency_choices_attributes
+        question[:question_dependency_attributes] = question_dependency_attributes
       end
     end
     permitted

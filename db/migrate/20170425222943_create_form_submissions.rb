@@ -2,9 +2,10 @@
 
 class CreateFormSubmissions < ActiveRecord::Migration[5.0]
   def change
-    create_table :form_submissions do |t|
-      t.belongs_to :form, index: true
+    create_table :form_submissions, id: :uuid do |t|
+      t.uuid :form_id
       t.timestamps
     end
+    add_index :form_submissions, :form_id
   end
 end
