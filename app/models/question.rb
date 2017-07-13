@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Question < ApplicationRecord
+  include Uuidable
   belongs_to :section
   has_many :question_submissions
   has_many :choices, dependent: :destroy

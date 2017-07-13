@@ -66,7 +66,8 @@ ActiveRecord::Schema.define(version: 20170713171955) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "choices", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+  create_table "choices", id: false, force: :cascade do |t|
+    t.uuid "id"
     t.uuid "question_id"
     t.uuid "question_dependency_id"
     t.jsonb "metadata", default: "{}"
@@ -74,44 +75,54 @@ ActiveRecord::Schema.define(version: 20170713171955) do
     t.string "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["id"], name: "index_choices_on_id", unique: true
     t.index ["question_dependency_id"], name: "index_choices_on_question_dependency_id"
     t.index ["question_id"], name: "index_choices_on_question_id"
   end
 
-  create_table "form_submissions", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+  create_table "form_submissions", id: false, force: :cascade do |t|
+    t.uuid "id", null: false
     t.uuid "form_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["form_id"], name: "index_form_submissions_on_form_id"
+    t.index ["id"], name: "index_form_submissions_on_id", unique: true
   end
 
-  create_table "forms", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+  create_table "forms", id: false, force: :cascade do |t|
+    t.uuid "id", null: false
     t.uuid "application_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "completion_content"
     t.index ["application_id"], name: "index_forms_on_application_id"
+    t.index ["id"], name: "index_forms_on_id", unique: true
   end
 
-  create_table "question_dependencies", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+  create_table "question_dependencies", id: false, force: :cascade do |t|
+    t.uuid "id", null: false
     t.uuid "question_id"
     t.boolean "display"
     t.boolean "and"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["id"], name: "index_question_dependencies_on_id", unique: true
     t.index ["question_id"], name: "index_question_dependencies_on_question_id"
   end
 
-  create_table "question_dependency_choices", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "question_dependency_choices", id: false, force: :cascade do |t|
+    t.uuid "id", null: false
     t.uuid "question_dependency_id"
     t.uuid "choice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["choice_id"], name: "index_question_dependency_choices_on_choice_id"
+    t.index ["id"], name: "index_question_dependency_choices_on_id", unique: true
     t.index ["question_dependency_id"], name: "index_question_dependency_choices_on_question_dependency_id"
   end
 
-  create_table "question_submissions", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+  create_table "question_submissions", id: false, force: :cascade do |t|
+    t.uuid "id", null: false
     t.uuid "form_submission_id"
     t.uuid "question_id"
     t.string "string"
@@ -122,11 +133,13 @@ ActiveRecord::Schema.define(version: 20170713171955) do
     t.datetime "updated_at", null: false
     t.json "composite"
     t.index ["form_submission_id"], name: "index_question_submissions_on_form_submission_id"
+    t.index ["id"], name: "index_question_submissions_on_id", unique: true
     t.index ["multi_select_id"], name: "index_question_submissions_on_multi_select_id"
     t.index ["question_id"], name: "index_question_submissions_on_question_id"
   end
 
-  create_table "questions", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+  create_table "questions", id: false, force: :cascade do |t|
+    t.uuid "id", null: false
     t.string "key"
     t.string "label"
     t.text "content"
@@ -139,10 +152,12 @@ ActiveRecord::Schema.define(version: 20170713171955) do
     t.uuid "section_id"
     t.boolean "required"
     t.string "placeholder"
+    t.index ["id"], name: "index_questions_on_id", unique: true
     t.index ["section_id"], name: "index_questions_on_section_id"
   end
 
-  create_table "sections", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+  create_table "sections", id: false, force: :cascade do |t|
+    t.uuid "id", null: false
     t.uuid "form_id"
     t.string "name"
     t.integer "order"
@@ -150,6 +165,7 @@ ActiveRecord::Schema.define(version: 20170713171955) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["form_id"], name: "index_sections_on_form_id"
+    t.index ["id"], name: "index_sections_on_id", unique: true
   end
 
 end

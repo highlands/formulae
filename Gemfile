@@ -21,7 +21,7 @@ gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'maste
 # Rack Cors
 gem 'rack-cors', require: 'rack/cors'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.1.0'
+gem 'rails', '5.1.1'
 # Postgres
 gem 'pg'
 # Use Puma as the app server
