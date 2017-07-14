@@ -6,6 +6,6 @@ class ApiKey < ApplicationRecord
   before_create :set_token
 
   private def set_token
-    self.token = SecureRandom.uuid unless self.token.present?
+    self.token = SecureRandom.uuid unless token.present?
   end
 end

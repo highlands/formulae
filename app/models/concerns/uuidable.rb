@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'securerandom'
 
 module Uuidable
@@ -13,7 +15,7 @@ module Uuidable
     end
 
     private def set_id
-      self.id = SecureRandom.uuid unless self.id.present?
+      self.id = SecureRandom.uuid unless id.present?
     end
   end
 end

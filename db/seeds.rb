@@ -4,7 +4,9 @@ puts 'Creating Application'
 a = Application.create
 
 puts 'Creating Api Keys'
-ApiKey.create(application: a, creator: true, submitter: true, analytics: true, token: '810cb082-1beb-4cb4-9f78-baeb330a42c5')
+ApiKey.create(application: a,
+              creator: true, submitter: true, analytics: true,
+              token: '810cb082-1beb-4cb4-9f78-baeb330a42c5')
 ApiKey.create(application: a, creator: false, submitter: true, analytics: true)
 ApiKey.create(application: a, creator: false, submitter: false, analytics: true)
 

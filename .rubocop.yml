@@ -14,7 +14,7 @@ Documentation:
     Enabled: false
 
 Style/IfUnlessModifier:
-  MaxLineLength: 90
+  MaxLineLength: 150
 
 Style/Encoding:
   EnforcedStyle: never
@@ -65,7 +65,7 @@ Metrics/CyclomaticComplexity:
 # Offense count: 136
 # Configuration parameters: CountComments.
 Metrics/MethodLength:
-  Max: 20
+  Max: 45
 
 # Offense count: 12
 # Configuration parameters: CountComments.
@@ -73,4 +73,4 @@ Metrics/ModuleLength:
   Max: 156
 
 Metrics/LineLength:
-  Max: 120
+  Max: 200
