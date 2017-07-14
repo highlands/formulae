@@ -69,6 +69,7 @@ class Api::V1::FormsController < Api::V1::ApiController
                                                :question_type, :validate_as, :section_id, :required,
                                                :placeholder, :_destroy,
                                                question_dependency: [
+                                                 :id,
                                                  :and,
                                                  :display,
                                                  :_destroy,
@@ -95,9 +96,11 @@ class Api::V1::FormsController < Api::V1::ApiController
         choices_attributes = question[:choices] ? question.delete(:choices) : []
         question[:choices_attributes] = choices_attributes
         question_dependency_attributes = question[:question_dependency] ? question.delete(:question_dependency) : nil
-        question_dependency_choices_attributes = question_dependency_attributes[:question_dependency_choices] ? question_dependency_attributes.delete(:question_dependency_choices) : []
-        question_dependency_attributes[:question_dependency_choices_attributes] = question_dependency_choices_attributes
-        question[:question_dependency_attributes] = question_dependency_attributes
+        if question_dependency_attributes
+          question_dependency_choices_attributes = question_dependency_attributes[:question_dependency_choices] ? question_dependency_attributes.delete(:question_dependency_choices) : []
+          question_dependency_attributes[:question_dependency_choices_attributes] = question_dependency_choices_attributes
+          question[:question_dependency_attributes] = question_dependency_attributes
+        end
       end
     end
     permitted
