@@ -9,7 +9,7 @@ module FormMethods
     end
     first_section = build_form.sections[0]
     first_question = first_section.questions[0]
-    first_question.question_dependency = QuestionDependency.new(and: false, choices: [], display: true)
+    first_question.question_dependency = QuestionDependency.new(and: false, display: true)
     build_form
   end
 
