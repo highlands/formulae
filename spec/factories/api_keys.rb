@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :api_key do
-    token 'TOKEN'
+    association :application, factory: :application_without_key
+    sequence(:token) { |n| "token-#{n}-#{n + 1}-#{n + 20}" }
   end
 
   trait :creator do
