@@ -2,6 +2,7 @@
 
 class AddBelongsToSectionQuestions < ActiveRecord::Migration[5.0]
   def change
-    add_reference :questions, :section, foreign_key: true
+    add_column :questions, :section_id, :uuid
+    add_index :questions, :section_id
   end
 end

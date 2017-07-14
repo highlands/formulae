@@ -4,7 +4,9 @@ puts 'Creating Application'
 a = Application.create
 
 puts 'Creating Api Keys'
-ApiKey.create(application: a, creator: true, submitter: true, analytics: true)
+ApiKey.create(application: a,
+              creator: true, submitter: true, analytics: true,
+              token: '810cb082-1beb-4cb4-9f78-baeb330a42c5')
 ApiKey.create(application: a, creator: false, submitter: true, analytics: true)
 ApiKey.create(application: a, creator: false, submitter: false, analytics: true)
 
@@ -73,7 +75,7 @@ q2 = Question.create(section: s4,
 # 'Are you happy?' -> Yes -> Go to What makes you happy?
 #                  -> No  -> Go to What makes you sad?
 question_dependency = QuestionDependency.create(question: q2, display: true)
-question_dependency.choices << choice1
+question_dependency.question_dependency_choices << QuestionDependencyChoice.new(choice_id: choice1.id)
 
 q3 = Question.create(section: s5,
                      order: 1,
@@ -82,7 +84,7 @@ q3 = Question.create(section: s5,
                      question_type: 'text', hidden: false)
 
 question_dependency = QuestionDependency.create(question: q3, display: true)
-question_dependency.choices << choice2
+question_dependency.question_dependency_choices << QuestionDependencyChoice.new(choice_id: choice2.id)
 
 puts 'Creating an AdminUser'
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
