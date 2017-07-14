@@ -12,79 +12,127 @@ ApiKey.create(application: a, creator: false, submitter: false, analytics: true)
 
 f = Form.create(application: a)
 
-s1 = Section.create(name: 'My section',
-                    form: f,
-                    order: 0,
-                    content: 'This section is for test')
-
-s2 = Section.create(name: 'My second section',
+puts 'Creating Sections'
+s1 = Section.create(name: 'Personal Information',
                     form: f,
                     order: 1,
-                    content: 'This section is for a second test')
+                    content: 'This section is for personal information')
 
-s3 = Section.create(name: 'Section with question dependencies',
+s2 = Section.create(name: 'Other Information',
                     form: f,
-                    order: 1,
-                    content: 'This section is for a test with question dependencies')
+                    order: 2,
+                    content: 'Section for leadership and interests')
 
-s4 = Section.create(name: 'Section with question dependencies',
+s3 = Section.create(name: 'SERVE Day Store',
                     form: f,
-                    order: 1,
-                    content: 'This section is for a test with question dependencies')
+                    order: 3,
+                    content: 'This section is for the SERVE Day store')
 
-s5 = Section.create(name: 'Section with question dependencies',
-                    form: f,
-                    order: 1,
-                    content: 'This section is for a test with question dependencies')
+## Questions
+puts 'Creating Questions'
+
 Question.create(section: s1,
-                order: 0,
-                key: 'Key', label: 'This is a label',
-                content: 'What is your Name?',
-                required: true,
-                question_type: 'string', hidden: false)
-Question.create(section: s1,
-                order: 0,
-                key: 'Key', label: 'Email address',
-                content: 'Tell us your email address so we can contact you with
-                  special offers and sell it later when we go under!',
-                required: true,
-                validate_as: 'email',
-                question_type: 'string', hidden: false)
-
-Question.create(section: s2,
                 order: 1,
-                key: 'Key', label: 'About You',
-                content: 'Tell me more about you',
-                question_type: 'text', hidden: false)
+                key: 'first-name', label: 'First Name',
+                placeholder: 'First Name',
+                required: true,
+                question_type: 'string', hidden: false)
 
-q = Question.create(section: s3,
-                    order: 1,
-                    key: 'Key', label: 'Happiness',
-                    content: 'Are you happy?',
-                    question_type: 'select', hidden: false)
+Question.create(section: s1,
+                order: 2,
+                key: 'last-name', label: 'Last Name',
+                placeholder: 'Last Name',
+                required: true,
+                question_type: 'string', hidden: false)
 
-choice1 = Choice.create(question: q, label: 'Yes')
-choice2 = Choice.create(question: q, label: 'No')
+# Age
+age_question = Question.create(section: s1,
+                order: 3,
+                key: 'age', label: 'Age',
+                placeholder: 'Age',
+                required: true,
+                question_type: 'select', hidden: false)
 
-q2 = Question.create(section: s4,
-                     order: 1,
-                     key: 'Key', label: 'Happiness',
-                     content: 'What makes you happy?',
-                     question_type: 'text', hidden: false)
-# There is a question dependency between
-# 'Are you happy?' -> Yes -> Go to What makes you happy?
-#                  -> No  -> Go to What makes you sad?
-question_dependency = QuestionDependency.create(question: q2, display: true)
-question_dependency.question_dependency_choices << QuestionDependencyChoice.new(choice_id: choice1.id)
+Choice.create(question: age_question, label: '0-10')
+Choice.create(question: age_question, label: '11-20')
+Choice.create(question: age_question, label: '20-30')
+Choice.create(question: age_question, label: '30-50')
+Choice.create(question: age_question, label: '50+')
 
-q3 = Question.create(section: s5,
-                     order: 1,
-                     key: 'Key', label: 'Happiness',
-                     content: 'What makes you sad?',
-                     question_type: 'text', hidden: false)
+Question.create(section: s1,
+                order: 4,
+                key: 'email', label: 'Email',
+                placeholder: 'Email',
+                required: true,
+                question_type: 'string', hidden: false)
 
-question_dependency = QuestionDependency.create(question: q3, display: true)
-question_dependency.question_dependency_choices << QuestionDependencyChoice.new(choice_id: choice2.id)
+Question.create(section: s1,
+                order: 5,
+                key: 'phone', label: 'Phone',
+                placeholder: 'Phone',
+                required: true,
+                question_type: 'string', hidden: false)
 
+Question.create(section: s1,
+                order: 6,
+                key: 'address', label: 'Address',
+                placeholder: 'Address',
+                required: true,
+                question_type: 'address', hidden: false)
+
+# Second Section
+
+campus_question = Question.create(section: s2,
+                order: 7, key: 'campus', label: 'Which campus do you attend?',
+                question_type: 'radio', hidden: false)
+
+Choice.create(question: campus_question, label: 'Grants Mill')
+Choice.create(question: campus_question, label: 'Alabaster')
+Choice.create(question: campus_question, label: 'Auburn')
+Choice.create(question: campus_question, label: 'Español')
+Choice.create(question: campus_question, label: 'Fultondale')
+Choice.create(question: campus_question, label: 'Greystone')
+Choice.create(question: campus_question, label: 'Huntsville')
+Choice.create(question: campus_question, label: 'Montgomery')
+
+Question.create(section: s1,
+                order: 8,
+                key: 'leadership', label: 'Leadership',
+                content: 'I am interested in leading/co-leading an Outreach Small Group
+                and would like to discuss with a member of the Outrech team',
+                question_type: 'boolean', hidden: false)
+
+# I am interested in
+interest_question = Question.create(section: s1,
+                                    order: 9,
+                                    key: 'leadership', label: 'Leadership',
+                                    question_type: 'checkboxes', hidden: false)
+
+Choice.create(question: interest_question, label: 'Elderly')
+Choice.create(question: interest_question, label: 'Kids')
+Choice.create(question: interest_question, label: 'Foster Families')
+Choice.create(question: interest_question, label: 'Other(Describe Below)')
+
+Question.create(section: s1,
+                order: 10,
+                key: 'other-interest', label: 'If you chose Other above, please describe',
+                question_type: 'string', hidden: false)
+
+learn_more_question = Question.create(section: s1,
+                                    order: 11,
+                                    key: 'leadership', label: 'I would like to learn more about',
+                                    question_type: 'checkboxes', hidden: false)
+
+Choice.create(question: learn_more_question, label: 'First Saturday Outreach')
+Choice.create(question: learn_more_question, label: 'Outreach S mall Groups')
+Choice.create(question: learn_more_question, label: 'Christ Health Center(Birmingham)')
+Choice.create(question: learn_more_question, label: 'Highlands Prison Ministry')
+
+Question.create(section: s3,
+                order: 10,
+                key: 'serve-day-story', content: 'I have a SERVE Day story I would like to share!',
+                question_type: 'boolean', hidden: false)
+
+# Admin User
 puts 'Creating an AdminUser'
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
