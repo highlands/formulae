@@ -47,11 +47,11 @@ Question.create(section: s1,
 
 # Age
 age_question = Question.create(section: s1,
-                order: 3,
-                key: 'age', label: 'Age',
-                placeholder: 'Age',
-                required: true,
-                question_type: 'select', hidden: false)
+                               order: 3,
+                               key: 'age', label: 'Age',
+                               placeholder: 'Age',
+                               required: true,
+                               question_type: 'select', hidden: false)
 
 Choice.create(question: age_question, label: '0-10')
 Choice.create(question: age_question, label: '11-20')
@@ -83,8 +83,8 @@ Question.create(section: s1,
 # Second Section
 
 campus_question = Question.create(section: s2,
-                order: 7, key: 'campus', label: 'Which campus do you attend?',
-                question_type: 'radio', hidden: false)
+                                  order: 7, key: 'campus', label: 'Which campus do you attend?',
+                                  question_type: 'radio', hidden: false)
 
 Choice.create(question: campus_question, label: 'Grants Mill')
 Choice.create(question: campus_question, label: 'Alabaster')
@@ -119,9 +119,9 @@ Question.create(section: s1,
                 question_type: 'string', hidden: false)
 
 learn_more_question = Question.create(section: s1,
-                                    order: 11,
-                                    key: 'leadership', label: 'I would like to learn more about',
-                                    question_type: 'checkboxes', hidden: false)
+                                      order: 11,
+                                      key: 'leadership', label: 'I would like to learn more about',
+                                      question_type: 'checkboxes', hidden: false)
 
 Choice.create(question: learn_more_question, label: 'First Saturday Outreach')
 Choice.create(question: learn_more_question, label: 'Outreach S mall Groups')
