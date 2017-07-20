@@ -81,13 +81,13 @@ class Api::V1::FormsController < Api::V1::ApiController
                                                    _destroy
                                                  ]
                                                ],
-                                               choices: %i[
-                                                 id
-                                                 metadata
-                                                 maximum_chosen
-                                                 label
-                                                 uuid
-                                                 _destroy
+                                               choices: [
+                                                 :id,
+                                                 :maximum_chosen,
+                                                 :label,
+                                                 :uuid,
+                                                 :_destroy,
+                                                 metadata: {}
                                                ]]])
     permitted[:sections_attributes] = permitted.delete(:sections)
     permitted[:sections_attributes].each do |section|
