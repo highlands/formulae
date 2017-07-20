@@ -10,7 +10,7 @@ ApiKey.create(application: a,
 ApiKey.create(application: a, creator: false, submitter: true, analytics: true)
 ApiKey.create(application: a, creator: false, submitter: false, analytics: true)
 
-f = Form.create(application: a)
+f = Form.create(id: '29f1fdeb-069d-4249-adb5-13287723f63c', application: a)
 
 puts 'Creating Sections'
 s1 = Section.create(name: 'Personal Information',
