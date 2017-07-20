@@ -87,7 +87,7 @@ class Api::V1::FormsController < Api::V1::ApiController
                                                  :label,
                                                  :uuid,
                                                  :_destroy,
-                                                 :metadata=> {}
+                                                 metadata: {}
                                                ]]])
     permitted[:sections_attributes] = permitted.delete(:sections)
     permitted[:sections_attributes].each do |section|
