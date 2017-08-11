@@ -86,6 +86,7 @@ class Api::V1::FormsController < Api::V1::ApiController
                                                  :maximum_chosen,
                                                  :label,
                                                  :uuid,
+                                                 :order,
                                                  :_destroy,
                                                  metadata: {}
                                                ]]])

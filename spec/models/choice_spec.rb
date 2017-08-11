@@ -7,6 +7,7 @@ RSpec.describe Choice, type: :model do
     it { is_expected.to respond_to(:label) }
     it { is_expected.to respond_to(:metadata) }
     it { is_expected.to respond_to(:maximum_chosen) }
+    it { is_expected.to respond_to(:order) }
   end
 
   describe 'relations' do
