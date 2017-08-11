@@ -29,7 +29,7 @@ resource 'Choices' do
 
         response = JSON.parse(response_body)
         expect(response.keys).to eq %w[id question_id question_dependency_id
-                                       metadata maximum_chosen label created_at updated_at]
+                                       metadata maximum_chosen label created_at updated_at order]
         expect(status).to eq 200
       end
     end
