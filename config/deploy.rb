@@ -11,6 +11,8 @@ set :branch, "master"
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/deployer/formulae"
 
+set :rvm_ruby_version, '2.4.1@formulae'
+
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
