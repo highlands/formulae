@@ -24,8 +24,6 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'rails', '5.1.1'
 # Postgres
 gem 'pg'
-# Use Puma as the app server
-gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -43,9 +41,13 @@ gem 'apitome'
 # Ranked Model
 gem 'ranked-model'
 
-# Capistrano gems
+# Deployment gems
+gem 'passenger'
 gem 'capistrano', '~> 3.6'
 gem 'capistrano-bundler', '~> 1.3'
+gem 'capistrano-rails'
+gem 'capistrano-rvm'
+gem 'capistrano-passenger'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
