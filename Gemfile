@@ -14,7 +14,7 @@ gem 'simple_command'
 gem 'active_model_serializers', '~> 0.10.0'
 
 # Active Admin - It is a nice Admin View
-gem 'activeadmin'
+gem 'activeadmin', '>= 1.0.0'
 # Devise - Log in -- using it with active admin
 # https://github.com/plataformatec/devise/issues/4525
 gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'master'
@@ -50,7 +50,7 @@ gem 'capistrano-rvm'
 gem 'capistrano-passenger'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.3.4'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
