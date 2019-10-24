@@ -11,10 +11,10 @@ end
 gem 'simple_command'
 
 # Active Model Serializers helps us creating serializers for our API
-gem 'active_model_serializers', '~> 0.10.0'
+gem 'active_model_serializers', '~> 0.10.6'
 
 # Active Admin - It is a nice Admin View
-gem 'activeadmin'
+gem 'activeadmin', '>= 1.0.0'
 # Devise - Log in -- using it with active admin
 # https://github.com/plataformatec/devise/issues/4525
 gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'master'
@@ -25,18 +25,18 @@ gem 'rails', '5.1.1'
 # Postgres
 gem 'pg'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # Rspec api documentation
 gem 'rspec_api_documentation'
 # apitome - documentation viewer at /api/docs
-gem 'apitome'
+gem 'apitome', '>= 0.1.0'
 
 # Ranked Model
 gem 'ranked-model'
@@ -50,7 +50,7 @@ gem 'capistrano-rvm'
 gem 'capistrano-passenger'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.3.1'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -67,7 +67,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'brakeman', require: false
   gem 'byebug', platform: :mri
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '>= 4.8.0'
   gem 'faker'
   gem 'rspec-rails', '3.5.2'
 end
@@ -81,7 +81,7 @@ group :development do
   gem 'rubocop', require: false
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'listen', '~> 3.0.5'
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console', '>= 3.5.1'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
