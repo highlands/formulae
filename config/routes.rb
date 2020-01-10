@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin/manage', as: 'rails_admin'
 
   namespace :admin do
-    root to: 'dashboard#show'
-    get 'dashboard/show'
+    root to: 'forms#index'
+    resources :forms
   end
 
   namespace :api do

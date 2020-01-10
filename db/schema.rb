@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180111210325) do
+ActiveRecord::Schema.define(version: 2020_01_10_182628) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
-  enable_extension "pgcrypto"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -96,6 +96,8 @@ ActiveRecord::Schema.define(version: 20180111210325) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "completion_content"
+    t.string "name"
+    t.text "description"
     t.index ["application_id"], name: "index_forms_on_application_id"
     t.index ["id"], name: "index_forms_on_id", unique: true
   end

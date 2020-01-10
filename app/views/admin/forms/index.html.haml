@@ -1,0 +1,23 @@
+%h1 Listing Forms
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th
+
+  %tbody
+    - @forms.each do |form|
+      %tr
+        %td= form.name
+        %td= form.description
+        %td
+          = link_to 'Show', admin_form_path(form)
+          = link_to 'Edit', edit_admin_form_path(form)
+          = link_to 'Destroy', admin_form_path(form), method: :delete,
+            data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Form', new_admin_form_path
