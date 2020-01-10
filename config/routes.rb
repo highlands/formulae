@@ -3,6 +3,12 @@
 Rails.application.routes.draw do
   devise_for :admin_users
   mount RailsAdmin::Engine => '/admin/manage', as: 'rails_admin'
+
+  namespace :admin do
+    root to: 'dashboard#show'
+    get 'dashboard/show'
+  end
+
   namespace :api do
     namespace :v1 do
       resources :form_submissions
