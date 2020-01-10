@@ -1,4 +1,6 @@
-%h1 Listing Forms
+.float-right= link_to 'New Form', new_admin_form_path,
+  class: "btn btn-sm btn-primary mt-2"
+%h2 Listing Forms
 
 %table.table
   %thead
@@ -10,14 +12,17 @@
   %tbody
     - @forms.each do |form|
       %tr
-        %td= form.name
+        %th{scope: 'row'}
+          = link_to form.name, admin_form_path(form), title: 'show'
         %td= form.description
-        %td
-          = link_to 'Show', admin_form_path(form)
-          = link_to 'Edit', edit_admin_form_path(form)
-          = link_to 'Destroy', admin_form_path(form), method: :delete,
-            data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Form', new_admin_form_path
+        %td.text-right
+          %span.mx-1
+            = link_to admin_form_path(form), title: 'show' do
+              = icon 'fas', 'eye'
+          %span.mx-1
+            = link_to edit_admin_form_path(form), title: 'edit' do
+              = icon 'fas', 'edit'
+          %span.mx-1
+            = link_to admin_form_path(form), method: :delete, title: 'delete',
+              data: { confirm: 'Are you sure?' } do
+              = icon 'fas', 'times', class: 'text-danger'
