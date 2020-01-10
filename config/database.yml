@@ -5,19 +5,14 @@ default: &default
 
 test:
   <<: *default
-  host:     localhost
   database: formulae-test
 
 development:
   <<: *default
-  host:     localhost
   database: formulae-development
 
 staging:
   <<: *default
-  host: <%= ENV['FORMULAE_DATABASE_HOST'] %>
-  username: <%= ENV['FORMULAE_DATABASE_USERNAME'] %>
-  password: <%= ENV['FORMULAE_DATABASE_PASSWORD'] %>
   database: formulae-staging
 
 production:
