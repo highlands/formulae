@@ -61,6 +61,7 @@ gem 'jbuilder', '~> 2.9.1'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'haml-rails'
+gem 'bootstrap'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
