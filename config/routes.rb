@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  devise_for :admin_users
+  mount RailsAdmin::Engine => '/admin/manage', as: 'rails_admin'
   namespace :api do
     namespace :v1 do
       resources :form_submissions

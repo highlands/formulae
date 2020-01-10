@@ -15,8 +15,7 @@ gem 'simple_command'
 # Active Model Serializers helps us creating serializers for our API
 gem 'active_model_serializers', '~> 0.10.10'
 
-# Active Admin - It is a nice Admin View
-gem 'activeadmin', '~> 2.6.0'
+gem 'rails_admin'
 # Devise - Log in -- using it with active admin
 # https://github.com/plataformatec/devise/issues/4525
 gem 'devise', '>= 4.7.1'
@@ -87,6 +86,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 2.1.0'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'binding_of_caller'
 end
 
 group :test do
