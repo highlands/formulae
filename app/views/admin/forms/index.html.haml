@@ -1,12 +1,13 @@
-%h2.d-inline-block Listing Forms
 .float-right= link_to 'New Form', new_admin_form_path,
-  class: "btn btn-sm btn-primary my-2"
+  class: "btn btn-sm btn-primary mt-3 mb-2"
 
-%table.table
+%table.table.table-hover
   %thead
     %tr
       %th Name
       %th Description
+      %th Updated At
+      %th Created At
       %th
 
   %tbody
@@ -15,6 +16,8 @@
         %th{scope: 'row'}
           = link_to form.name, admin_form_path(form), title: 'show'
         %td= form.description
+        %td= form.updated_at.to_s(:long)
+        %td= form.created_at.to_s(:long)
         %td.text-right
           %span.mx-1
             = link_to admin_form_path(form), title: 'show' do
