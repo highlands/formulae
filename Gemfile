@@ -45,7 +45,7 @@ gem 'ranked-model', '~> 0.4.4'
 
 # Deployment gems
 gem 'passenger'
-gem 'capistrano', '~> 3.6'
+gem 'capistrano', '~> 3.11.2'
 gem 'capistrano-bundler', '~> 1.3'
 gem 'capistrano-rails'
 gem 'capistrano-rvm'
