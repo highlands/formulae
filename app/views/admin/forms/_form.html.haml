@@ -1,4 +1,4 @@
-= form_for [:admin, @form] do |f|
+= minimal_form_for [:admin, @form] do |f|
   - if @form.errors.any?
     #error_explanation
       %h2= "#{pluralize(@form.errors.count, "error")} prohibited this admin_form from being saved:"
@@ -6,12 +6,35 @@
         - @form.errors.full_messages.each do |message|
           %li= message
 
-  .form-group
-    = f.label :name
-    = f.text_field :name, class: 'form-control'
-  .form-group
-    = f.label :description
-    = f.text_area :description, size: '60x12', class: 'form-control'
+  = f.input :name
+  = f.input :description
+  %h4 Sections
+  = f.simple_fields_for :sections do |fs|
+    .card
+      .card-body#sections
+        .actions
+          = link_to '#', title: 'collapse' do
+            = icon 'fas', 'minus'
+          = link_to '#', title: 'delete' do
+            = icon 'fas', 'times'
+        = fs.input :name, as: :string
+        = fs.input :content
+        = f.simple_fields_for :questions do |fq|
+          .card
+            .card-body{ id: "section_#{fs.object.id}_questions" }
+              .card-title
+                = link_to '#', title: 'copy' do
+                  = icon 'fas', 'clone'
+                %span
+                  = t(fq.object.question_type).humanize.upcase
+                .float-right
+                  = link_to '#', title: 'delete' do
+                    = icon 'fas', 'times'
+                = fq.input :required
+              = fq.input :label
+              = fq.input :content
+  %h4 Completion Message
+  = f.input :completion_content
 
   .actions
-    = f.submit 'Save', class: 'btn btn-block btn-primary'
+    = f.submit 'Save Form', class: 'btn btn-block btn-primary'

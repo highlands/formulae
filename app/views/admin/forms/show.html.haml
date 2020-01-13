@@ -2,6 +2,14 @@
 
 %h3= @form.name
 %p= @form.description
+%p= @form.completion_content
+- @form.sections.order(:order).each do |section|
+  %h4
+    =section.name
+    %small.text-muted=section.content
+  %hr
+  - section.questions.order(:order).each do |question|
+    %p= question.label
 
 = link_to 'Edit', edit_admin_form_path(@form)
 \|

@@ -1,3 +1,66 @@
+@import 'overrides';
 @import 'bootstrap';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+h2,h4 {
+  color: $primary;
+  font-weight: bold;
+}
+
+hr {
+  border: 1px solid $black;
+}
+
+.card {
+  background-color: $medium-gray;
+  border: none;
+  margin-bottom: $spacer;
+  input,textarea,select {
+    border: none;
+  }
+  .card-body {
+    padding-right: $spacer * 6;
+    .actions {
+      position: absolute;
+      right: $spacer;
+      top: -13px;
+      a i {
+        background-color: $primary;
+        color: $white;
+        border-radius: 50%;
+        margin-left: 5px;
+        padding: 5px;
+        text-align: center;
+        height: 26px;
+        width: 26px;
+      }
+    }
+  }
+  .card {
+    background-color: $light-gray;
+    border: none;
+    margin-bottom: $spacer;
+    input,textarea,select {
+      border: none;
+    }
+    .card-title {
+      font-size: 14px;
+      letter-spacing: 2px;
+      a {
+        color: $gray-600;
+      }
+    }
+    .card-body {
+      padding-right: $spacer * 3;
+      .card-title {
+        .float-right {
+          margin-right: $spacer * -2;
+        }
+        .form-group {
+          float: right;
+        }
+      }
+    }
+  }
+}
