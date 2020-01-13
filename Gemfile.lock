@@ -318,6 +318,9 @@ GEM
     shoulda-matchers (4.2.0)
       activesupport (>= 4.2.0)
     simple_command (0.1.0)
+    simple_form (5.0.1)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     simplecov (0.17.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -401,6 +404,7 @@ DEPENDENCIES
   shoulda-callback-matchers
   shoulda-matchers
   simple_command
+  simple_form
   simplecov
   spring (~> 2.1.0)
   spring-watcher-listen (~> 2.0.0)

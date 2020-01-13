@@ -63,6 +63,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'haml-rails'
 gem 'bootstrap'
 gem 'font-awesome-sass'
+gem 'simple_form'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
