@@ -1,0 +1,21 @@
+.card
+  .card-body
+    .card-title
+      %span
+        = t(fq.object.question_type).humanize.upcase
+      = fq.input_field :id, as: 'hidden'
+      .actions
+        = link_to "#question_#{fq.object.id}", title: 'collapse',
+          class: 'btn btn-secondary btn-sm collapsed',
+          data: { toggle: 'collapse' }, 'aria-expanded': 'false',
+          'aria-controls': "question_#{fq.object.id}" do
+          = icon 'fas', 'minus'
+        = link_to '#', title: 'delete',
+          class: 'btn btn-secondary btn-sm' do
+          = icon 'fas', 'times'
+      = fq.input :required
+    = fq.input :label, wrapper_html: { class: 'mb-0' }
+    .content.collapse.mt-3{ id: "question_#{fq.object.id}" }
+      = fq.input :content
+      = fq.simple_fields_for :choices do |fc|
+        = render 'choice', fc: fc

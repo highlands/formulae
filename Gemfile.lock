@@ -142,6 +142,9 @@ GEM
       ruby_parser (~> 3.5)
     i18n (1.7.1)
       concurrent-ruby (~> 1.0)
+    inline_svg (1.6.0)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     jaro_winkler (1.5.4)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
@@ -387,6 +390,7 @@ DEPENDENCIES
   faker
   font-awesome-sass
   haml-rails
+  inline_svg
   jbuilder (~> 2.9.1)
   jquery-rails (~> 4.3.5)
   listen (~> 3.2.1)

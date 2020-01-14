@@ -64,6 +64,7 @@ gem 'haml-rails'
 gem 'bootstrap'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem 'inline_svg'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

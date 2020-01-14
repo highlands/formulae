@@ -3,19 +3,18 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-h2,h4 {
-  color: $primary;
-  font-weight: bold;
-}
-
-hr {
-  border: 1px solid $black;
+@each $name, $value in $theme-colors {
+  .fill-#{$name} {
+    path {
+      fill: #{$value};
+    }
+  }
 }
 
 .card {
   background-color: $medium-gray;
   border: none;
-  margin-bottom: $spacer;
+  margin-bottom: $spacer * 2;
   input,textarea,select {
     border: none;
   }
@@ -25,15 +24,17 @@ hr {
       position: absolute;
       right: $spacer;
       top: -13px;
-      a i {
-        background-color: $primary;
-        color: $white;
+      a {
         border-radius: 50%;
-        margin-left: 5px;
-        padding: 5px;
-        text-align: center;
-        height: 26px;
-        width: 26px;
+        border: none;
+        padding: 2px 4px;
+        margin-left: 8px;
+        i {
+          width: 1.25em;
+        }
+      }
+      .collapsed i:before {
+        content: '\f067';
       }
     }
   }
@@ -44,22 +45,38 @@ hr {
     input,textarea,select {
       border: none;
     }
+    &:last-of-type {
+      //margin-bottom: 0px;
+    }
     .card-title {
       font-size: 14px;
       letter-spacing: 2px;
-      a {
-        color: $gray-600;
-      }
     }
     .card-body {
-      padding-right: $spacer * 3;
+      padding-right: $spacer * 5;
       .card-title {
-        .float-right {
-          margin-right: $spacer * -2;
+        .actions {
+          float: right;
+          margin-right: $spacer * -4;
+          position: unset;
+          right: unset;
+          top: unset;
+          a {
+            border-radius: 50%;
+            border: none;
+            margin-left: 4px;
+            padding: 2px 4px;
+            i {
+              letter-spacing: normal;
+            }
+          }
         }
         .form-group {
           float: right;
         }
+      }
+      .content .form-group:last-of-type {
+        margin-bottom: 0px;
       }
     }
   }

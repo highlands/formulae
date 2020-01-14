@@ -5,6 +5,6 @@ en:
   radio: multiple_choice
   boolean: yes_or_no
   address: address
-  content: content
+  content: text
   multiselect: multiselect
   checkboxes: checkbox

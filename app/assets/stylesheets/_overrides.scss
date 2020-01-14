@@ -1,13 +1,25 @@
 $spacer: 1rem;
 $primary: #1389CB;
-$secondary: #6CC3EE;
-$body-color: #000000;
+//$secondary: #6CC3EE;
+$info: #6CC3EE;
+$black: #000000;
+$body-color: $black;
 $dark-gray: #272727;
 $medium-gray: #EBEBEB;
 $light-gray: #F5F5F5;
+
+@import url('https://cdn.jsdelivr.net/npm/font-proxima-nova@1.0.1/style.css');
+$font-family-base: 'Proxima Nova Rg';
+$headings-font-family: 'Proxima Nova Lt';
+
 $input-color: $body-color;
-//$input-border-width: 0px;
+$headings-color: $primary;
+$headings-font-weight: 600;
+$hr-border-color: $black;
+$hr-border-width: 1px;
 $component-active-bg: $dark-gray;
+$emphasized-link-hover-darken-percentage: 25%;
+$input-btn-focus-width: 0;
 $link-hover-color: #2D5365;
 $link-hover-decoration: none;
 $border-radius: $spacer;

@@ -69,6 +69,21 @@ class Admin::FormsController < Admin::AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_form_params
-      params.require(:form).permit(:name, :description)
+      params.require(:form).permit(:name, :description, :completion_content,
+        section_attributes: [
+          :id, :form_id, :name, :content, :order, :_destroy,
+          question_attributes: [
+            :id, :label, :content, :required, :order, :question_type,
+            :validate_as, :placeholder, :section_id, :_destroy,
+            choice_attributes: [
+              :id, :question_id, :question_dependency_id, :metadata,
+              :maximum_chosen, :label, :order, :_destroy
+            ],
+            question_dependency_attributes: [
+              :id, :question_id, :display, :and, :_destroy
+            ]
+          ]
+        ]
+      )
     end
 end
