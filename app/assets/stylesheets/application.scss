@@ -5,13 +5,13 @@
 
 @each $name, $value in $theme-colors {
   .fill-#{$name} {
-    path {
+    circle, path {
       fill: #{$value};
     }
   }
 }
 
-.card {
+.card { // first level card
   background-color: $medium-gray;
   border: none;
   margin-bottom: $spacer * 2;
@@ -37,8 +37,14 @@
         content: '\f067';
       }
     }
+    .handle {
+      bottom: 0;
+      cursor: grab;
+      position: absolute;
+      right: 0;
+    }
   }
-  .card {
+  .card { // second level card
     background-color: $light-gray;
     border: none;
     margin-bottom: $spacer;
@@ -47,10 +53,6 @@
     }
     &:last-of-type {
       //margin-bottom: 0px;
-    }
-    .card-title {
-      font-size: 14px;
-      letter-spacing: 2px;
     }
     .card-body {
       padding-right: $spacer * 5;
@@ -75,9 +77,79 @@
           float: right;
         }
       }
-      .content .form-group:last-of-type {
-        margin-bottom: 0px;
+      .content {
+        .form-group:last-of-type {
+          margin-bottom: 0px;
+        }
+        .handle {
+          position: initial;
+        }
+      }
+    }
+    .card { // third level card
+      background-color: $white;
+      margin-left: $spacer * 2.5;
+      margin-top: 0 !important;
+      margin-bottom: $spacer !important;
+      &:before {
+        content: ' ';
+        position: absolute;
+        border-top: 2px solid $primary;
+        //border-left: 2px solid $primary;
+        width: $spacer;
+        height: 100%;
+        left: $spacer * -1.25;
+        top: $spacer * 1.25;
+      }
+      &:after {
+        content: ' ';
+        position: absolute;
+        border-left: 2px solid $primary;
+        height: $spacer * 2;
+        left: $spacer * -1.25;
+        top: $spacer * -0.75;
+      }
+      &:last-child {
+        &:before {
+          border-left: none;
+        }
+      }
+      .card-title {
+        margin-bottom: 0;
+      }
+      .card-body {
+        padding-right: $spacer * 5;
+        .card-title {
+          .actions {
+            float: right;
+            margin-right: $spacer * -4;
+            position: unset;
+            right: unset;
+            top: unset;
+            a {
+              border-radius: 50%;
+              border: none;
+              margin-left: 4px;
+              padding: 2px 4px;
+              i {
+                letter-spacing: normal;
+              }
+            }
+          }
+          .form-group {
+            float: right;
+          }
+        }
+        .content .form-group:last-of-type {
+          margin-bottom: 0px;
+        }
       }
     }
   }
+}
+
+h7 {
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: 2px;
 }

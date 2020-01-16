@@ -9,4 +9,11 @@ class Question < ApplicationRecord
   accepts_nested_attributes_for :choices, :question_dependency, allow_destroy: true
 
   delegate :form, to: :section
+
+  include RailsSortable::Model
+  set_sortable :order
+
+  def choices_allowed?
+    !%w{string text boolean address content}.include?(self.question_type)
+  end
 end

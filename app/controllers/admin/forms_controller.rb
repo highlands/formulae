@@ -64,18 +64,18 @@ class Admin::FormsController < Admin::AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_form
-      @form = Form.find(params[:id])
+      @form = Form.find(params[:form_id] || params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_form_params
       params.require(:form).permit(:name, :description, :completion_content,
-        section_attributes: [
+        sections_attributes: [
           :id, :form_id, :name, :content, :order, :_destroy,
-          question_attributes: [
+          questions_attributes: [
             :id, :label, :content, :required, :order, :question_type,
             :validate_as, :placeholder, :section_id, :_destroy,
-            choice_attributes: [
+            choices_attributes: [
               :id, :question_id, :question_dependency_id, :metadata,
               :maximum_chosen, :label, :order, :_destroy
             ],

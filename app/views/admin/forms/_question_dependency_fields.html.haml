@@ -1,0 +1,7 @@
+.question_dependency{ id: "question_dependency_#{f.object.object_id}" }
+  = f.input_field :id, as: 'hidden'
+  = f.input_field :question_id, as: 'hidden'
+  = render 'add_question', f: f, association: :question,
+    collapse: false, dependency_enabled: false,
+    selector: "#_#{f.object.object_id}_new_question",
+    insert_method: 'replaceWith'

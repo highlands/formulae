@@ -1,0 +1,33 @@
+.card.nested-fields{ id: f.object.sortable_id }
+  .card-body
+    = f.input_field :id, as: 'hidden'
+    .actions
+      = link_to "#section_#{f.object.object_id}_content", title: 'collapse',
+        class: 'btn btn-primary collapsed', data: { toggle: 'collapse' },
+        'aria-expanded': 'false',
+        'aria-controls': "section_#{f.object.object_id}_content" do
+        = icon 'fas', 'minus'
+      = link_to_remove_association f, { title: 'delete',
+        class: 'btn btn-primary' } do
+        = icon 'fas', 'times'
+    = f.input :name, as: :string, wrapper_html: { class: 'mb-0' }
+    .content.collapse.mt-3{ id: "section_#{f.object.object_id}_content" }
+      = f.input :content
+      - if f.object.questions.present?
+        .sortable{ id: "section_#{f.object.object_id}_questions" }
+          = f.simple_fields_for :questions,
+            f.object.questions.order(:order) do |fq|
+            = render 'question_fields', f: fq,
+              question_type: fq.object.question_type,
+              dependency_enabled: dependency_enabled
+      = link_to 'Add Question',
+        "#_#{f.object.object_id}_new_question",
+        title: 'Add Question', class: 'btn btn-primary text-white collapsed',
+        data: { toggle: 'collapse' }, 'aria-expanded': 'false',
+        'aria-controls': "_#{f.object.object_id}_new_question"
+      = render 'add_question', f: f, association: :questions,
+        collapse: true, dependency_enabled: dependency_enabled,
+        selector: "#section_#{f.object.object_id}_questions .card:last-of-type",
+        insert_method: 'after'
+    .btn.btn-link.text-white.handle
+      = icon 'fas', 'grip-horizontal', class: 'fa-2x'

@@ -1,68 +1,16 @@
-= link_to 'Add Question', "#section_#{fs.object.id}_new_question",
-  title: 'Add Question', class: 'btn btn-info text-white collapsed',
-  data: { toggle: 'collapse' }, 'aria-expanded': 'false',
-  'aria-controls': "section_#{fs.object.id}_new_question"
-.card.collapse.float-left.mt-3.mb-0{ id: "section_#{fs.object.id}_new_question" }
+.card.float-left.mt-3.mb-0{ id: "_#{f.object.object_id}_new_question",
+  class: "#{collapse ? 'collapse' : '' }" }
   .card-body.pr-4
     .card-title
       .actions.mr-0
-        = link_to "#section_#{fs.object.id}_new_question",
+        = link_to "#_#{f.object.object_id}_new_question",
           class: 'btn btn-secondary btn-sm',
           data: { toggle: 'collapse' }, 'aria-expanded': 'false',
-          'aria-controls': "section_#{fs.object.id}_new_question" do
+          'aria-controls': "_#{f.object.object_id}_new_question" do
           = icon 'fas', 'times'
     .row
-      .col-lg-3.col-md-4.pt-4
-        = link_to '#', title: 'Short Answer',
-          class: 'btn btn-link btn-block border' do
-          = inline_svg 'short_answer', class: 'fill-info m-4'
-          %hr.border.m-1
-          .text-dark Short Answer
-      .col-lg-3.col-md-4.pt-4
-        = link_to '#', title: 'Long Answer',
-          class: 'btn btn-link btn-block border' do
-          = inline_svg 'long_answer', class: 'fill-info m-4'
-          %hr.border.m-1
-          .text-dark Long Answer
-      .col-lg-3.col-md-4.pt-4
-        = link_to '#', title: 'Text',
-          class: 'btn btn-link btn-block border' do
-          = inline_svg 'text', class: 'fill-info m-4'
-          %hr.border.m-1
-          .text-dark Text
-      .col-lg-3.col-md-4.pt-4
-        = link_to '#', title: 'Yes or No',
-          class: 'btn btn-link btn-block border' do
-          = inline_svg 'yes_or_no', class: 'fill-info m-4'
-          %hr.border.m-1
-          .text-dark Yes or No
-      .col-lg-3.col-md-4.pt-4
-        = link_to '#', title: 'Address',
-          class: 'btn btn-link btn-block border' do
-          = inline_svg 'address', class: 'fill-info m-4'
-          %hr.border.m-1
-          .text-dark Address
-      .col-lg-3.col-md-4.pt-4
-        = link_to '#', title: 'Dropdown',
-          class: 'btn btn-link btn-block border' do
-          = inline_svg 'dropdown', class: 'fill-info m-4'
-          %hr.border.m-1
-          .text-dark Dropdown
-      .col-lg-3.col-md-4.pt-4
-        = link_to '#', title: 'Checkbox',
-          class: 'btn btn-link btn-block border' do
-          = inline_svg 'checkbox', class: 'fill-info m-4'
-          %hr.border.m-1
-          .text-dark Checkbox
-      .col-lg-3.col-md-4.pt-4
-        = link_to '#', title: 'Multiple Choice',
-          class: 'btn btn-link btn-block border' do
-          = inline_svg 'multiple_choice', class: 'fill-info m-4'
-          %hr.border.m-1
-          .text-dark Multiple Choice
-      .col-lg-3.col-md-4.pt-4
-        = link_to '#', title: 'Multiselect',
-          class: 'btn btn-link btn-block border' do
-          = inline_svg 'dropdown', class: 'fill-info m-4'
-          %hr.border.m-1
-          .text-dark Multiselect
+      - ['string', 'text', 'content', 'boolean', 'address', 'select',
+        'checkboxes', 'radio', 'multiselect'].each do |type|
+        = render 'question_type', f: f, type: type,
+          association: association, dependency_enabled: dependency_enabled,
+          selector: selector, insert_method: insert_method

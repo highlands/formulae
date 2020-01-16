@@ -9,9 +9,9 @@
   = f.input :name
   = f.input :description
   %h4 Sections
-  = f.simple_fields_for :sections do |fs|
-    #sections
-      = render 'section', fs: fs
+  .sortable#sections
+    = f.simple_fields_for :sections, f.object.sections.order(:order) do |fs|
+      = render 'section_fields', f: fs, dependency_enabled: true
 
   %h4 Completion Message
   = f.input :completion_content

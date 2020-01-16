@@ -1,0 +1,11 @@
+.col-lg-3.col-md-4.pt-4
+  = link_to_add_association f, association,
+    wrap_object: Proc.new { |q| q.question_type = type; q },
+    data: { 'association-insertion-node': selector,
+    'association-insertion-method': insert_method }, title: t(type).humanize,
+    class: 'btn btn-link btn-block border',
+    render_options: { locals: { dependency_enabled: dependency_enabled,
+    question_type: type }} do
+    = inline_svg_tag t(type), class: 'fill-primary m-4'
+    %hr.border.m-1
+    .text-dark= t(type).humanize

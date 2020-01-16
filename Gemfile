@@ -65,6 +65,10 @@ gem 'bootstrap'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'inline_svg'
+gem 'jquery-ui-rails'
+gem 'rails_sortable'
+gem 'cocoon'
+gem 'draper'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -73,6 +77,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'brakeman', require: false
   gem 'byebug', platform: :mri
+  gem 'pry'
   gem 'factory_girl_rails', '~> 4.9.0'
   gem 'faker'
   gem 'rspec-rails', '~> 3.9.0'
