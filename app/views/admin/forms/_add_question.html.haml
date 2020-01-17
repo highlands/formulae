@@ -1,18 +1,17 @@
-.card.float-left.mt-3.mb-0{ id: "_#{f.object.object_id}_new_question",
+.card.float-left.mt-3.mb-0{ id: "#{unique_dom_id(f)}_add_question",
   class: "#{collapse ? 'collapse' : '' }" }
   .card-body.pr-4
     .card-title
       .actions.mr-0
-        = link_to "#_#{f.object.object_id}_new_question",
+        = link_to "##{unique_dom_id(f)}_add_question",
           class: 'btn btn-secondary btn-sm',
           data: { toggle: 'collapse' }, 'aria-expanded': 'false',
-          'aria-controls': "_#{f.object.object_id}_new_question" do
+          'aria-controls': "#{unique_dom_id(f)}_add_question" do
           = icon 'fas', 'times'
     .row
       - ['string', 'text', 'content', 'boolean', 'address', 'select',
         'checkboxes', 'radio', 'multiselect'].each do |type|
-        -# dom_id(f.object)
-        .col-lg-3.col-md-4.pt-4{ id: "#{f.object.class.name}_#{f.object.object_id}_question_#{type}" }
+        .col-lg-3.col-md-4.pt-4{ id: "#{unique_dom_id(f)}_question_#{type}" }
           = render 'question_type', f: f, type: type,
             association: association, dependency_enabled: dependency_enabled,
             selector: selector, insert_method: insert_method

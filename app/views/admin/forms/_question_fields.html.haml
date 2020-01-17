@@ -6,29 +6,29 @@
       = f.input_field :id, as: 'hidden'
       = f.input_field :question_type, as: 'hidden', value: question_type
       .actions
-        = link_to "#question_#{f.object.object_id}_content",
+        = link_to "##{unique_dom_id(f)}_content",
           title: 'collapse', class: 'btn btn-secondary btn-sm collapsed',
           data: { toggle: 'collapse' }, 'aria-expanded': 'false',
-          'aria-controls': "question_#{f.object.object_id}_content" do
+          'aria-controls': "#{unique_dom_id(f)}_content" do
           = icon 'fas', 'minus'
         = link_to_remove_association f, { title: 'delete',
           class: 'btn btn-secondary btn-sm' } do
           = icon 'fas', 'times'
       = f.input :required
     = f.input :label, wrapper_html: { class: 'mb-0' }
-    .content.collapse.mt-3{ id: "question_#{f.object.object_id}_content" }
+    .content.collapse.mt-3{ id: "#{unique_dom_id(f)}_content" }
       = f.input :content
       - if f.object.choices_allowed?
         %h7.mb-2 CHOICES:
-        .sortable{ id: "question_#{f.object.object_id}_choices" }
+        .sortable{ id: "#{unique_dom_id(f)}_choices" }
           - if f.object.choices.present?
-            = f.simple_fields_for :choices,
-              f.object.choices.order(:order) do |fc|
-              = render 'choice_fields', f: fc,
-                dependency_enabled: dependency_enabled
+            - f.object.choices.order(:order).each.with_index do |choice,c_index|
+              = f.simple_fields_for :choices, choice do |fc|
+                = render 'choice_fields', f: fc,
+                  dependency_enabled: dependency_enabled
         = link_to_add_association 'Add Choice', f, :choices,
           title: 'Add Choice', class: 'btn btn-primary text-white',
-          data: { 'association-insertion-node': "#question_#{f.object.object_id}_choices",
+          data: { 'association-insertion-node': "##{unique_dom_id(f)}_choices",
           'association-insertion-method': 'append' },
           render_options: { locals: { dependency_enabled: dependency_enabled }}
     .btn.btn-link.text-muted.handle

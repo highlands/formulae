@@ -1,5 +1,5 @@
 .choice.nested-fields{ id: f.object.sortable_id,
-  data: { 'object-id': "choice_#{f.object.object_id}" } }
+  data: { 'dom-id': "#{unique_dom_id(f)}" } }
   = f.input_field :id, as: 'hidden'
   .input-group.mb-3
     .input-group-prepend
@@ -14,7 +14,7 @@
         = link_to_add_association 'Add Dependency', f.options[:parent_builder],
           :question_dependency, title: 'Add Dependency',
           class: 'btn btn-primary text-white',
-          data: { 'association-insertion-node': "[data-object-id='choice_#{f.object.object_id}']",
+          data: { 'association-insertion-node': "[data-dom-id='#{unique_dom_id(f)}']",
           'association-insertion-method': 'after' },
           disabled: f.object.question_dependency_id.present?,
           render_options: { locals: { dependency_enabled: dependency_enabled }}
