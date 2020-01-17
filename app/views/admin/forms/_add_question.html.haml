@@ -11,6 +11,8 @@
     .row
       - ['string', 'text', 'content', 'boolean', 'address', 'select',
         'checkboxes', 'radio', 'multiselect'].each do |type|
-        = render 'question_type', f: f, type: type,
-          association: association, dependency_enabled: dependency_enabled,
-          selector: selector, insert_method: insert_method
+        -# dom_id(f.object)
+        .col-lg-3.col-md-4.pt-4{ id: "#{f.object.class.name}_#{f.object.object_id}_question_#{type}" }
+          = render 'question_type', f: f, type: type,
+            association: association, dependency_enabled: dependency_enabled,
+            selector: selector, insert_method: insert_method
